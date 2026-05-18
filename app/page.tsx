@@ -4,9 +4,11 @@ import { BrandsSection } from "@/components/press-kit/BrandsSection";
 import { ClubsSection } from "@/components/press-kit/ClubsSection";
 import { ContactSection } from "@/components/press-kit/ContactSection";
 import { DevControlPanel } from "@/components/press-kit/DevControlPanel";
+import { Footer } from "@/components/press-kit/Footer";
 import { GalleryPreviewSection } from "@/components/press-kit/GalleryPreviewSection";
 import { Header } from "@/components/press-kit/Header";
 import { HeroSection } from "@/components/press-kit/HeroSection";
+import { RiderSection } from "@/components/press-kit/RiderSection";
 import { SoundSection } from "@/components/press-kit/SoundSection";
 import { SpotifySection } from "@/components/press-kit/SpotifySection";
 import { VideoSection } from "@/components/press-kit/VideoSection";
@@ -17,9 +19,11 @@ import {
   createPressKitEntry,
   getArtistGalleryHref,
   getArtistHomeHref,
+  getArtistVideosHref,
   getResolvedNavigation,
   hasBrandsContent,
   hasGalleryContent,
+  hasRiderContent,
   hasSoundContent,
   hasSpotifyContent,
   hasVisionContent,
@@ -72,6 +76,7 @@ export default async function Home({ searchParams }: HomeProps) {
   const showLocalSwitchers = await isLocalRequest();
   const navigation = getResolvedNavigation(pressKitConfig);
   const galleryHref = getArtistGalleryHref(pressKitEntry.id);
+  const videosHref = getArtistVideosHref(pressKitEntry.id);
   const homeHref = getArtistHomeHref(pressKitEntry.id);
 
   return (
@@ -124,7 +129,17 @@ export default async function Home({ searchParams }: HomeProps) {
       {hasBrandsContent(pressKitConfig) && (
         <BrandsSection brands={pressKitConfig.brands} />
       )}
+      {hasRiderContent(pressKitConfig) && pressKitConfig.rider && (
+        <RiderSection rider={pressKitConfig.rider} />
+      )}
       <ContactSection contact={pressKitConfig.contact} />
+      <Footer
+        client={client}
+        navigation={navigation}
+        homeHref={homeHref}
+        galleryHref={galleryHref}
+        videosHref={videosHref}
+      />
     </main>
   );
 }

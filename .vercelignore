@@ -5,7 +5,4 @@ node_modules
 .env
 .env.local
 .vercel
-public/yoruboy
 public/slyd/*.mov
-public/paul-keranne
-public/silver-dj

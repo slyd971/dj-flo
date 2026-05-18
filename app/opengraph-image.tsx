@@ -1,8 +1,8 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { headers } from "next/headers";
+import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
-import { getClientByHost, getDefaultClient } from "@/lib/clients";
+import { resolveRequestClient } from "@/lib/clients/server";
 import { templateThemes } from "@/data/templates";
 
 export const runtime = "nodejs";
@@ -30,10 +30,12 @@ async function getHeroDataUrl(heroImage: string) {
 }
 
 export default async function OpenGraphImage() {
-  const requestHeaders = await headers();
-  const hostname =
-    requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
-  const client = getClientByHost(hostname) ?? getDefaultClient();
+  const client = await resolveRequestClient();
+
+  if (!client) {
+    notFound();
+  }
+
   const heroDataUrl = await getHeroDataUrl(client.heroImage);
   const theme = templateThemes[client.defaultTheme];
   const primaryCta = client.pressKit.navigation.cta.label;

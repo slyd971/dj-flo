@@ -41,6 +41,7 @@ const sectionHrefMap = {
   vision: "#vision",
   spotify: "#spotify",
   brands: "#brands",
+  rider: "#rider",
   contact: "#contact",
 };
 
@@ -73,6 +74,10 @@ export function getArtistHomeHref(artistId: ArtistId): string {
   return artistId === getClients()[0].slug ? "/" : `/?client=${artistId}`;
 }
 
+export function getArtistVideosHref(artistId: ArtistId): string {
+  return artistId === getClients()[0].slug ? "/videos" : `/videos?client=${artistId}`;
+}
+
 export function hasGalleryContent(config: PressKitConfig): boolean {
   return config.gallery.images.length > 0;
 }
@@ -101,6 +106,10 @@ export function hasBrandsContent(config: PressKitConfig): boolean {
   return config.brands.items.length > 0;
 }
 
+export function hasRiderContent(config: PressKitConfig): boolean {
+  return Boolean(config.rider && config.rider.groups.length > 0);
+}
+
 export function getResolvedNavigation(
   config: PressKitConfig
 ): PressKitConfig["navigation"] {
@@ -117,6 +126,7 @@ export function getResolvedNavigation(
   if (hasVisionContent(config)) visibleSections.add(sectionHrefMap.vision);
   if (hasSpotifyContent(config)) visibleSections.add(sectionHrefMap.spotify);
   if (hasBrandsContent(config)) visibleSections.add(sectionHrefMap.brands);
+  if (hasRiderContent(config)) visibleSections.add(sectionHrefMap.rider);
 
   return {
     ...config.navigation,

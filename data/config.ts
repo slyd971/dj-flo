@@ -116,6 +116,7 @@ export type PressKitConfig = {
         alt: string;
         badge: string;
         caption: string;
+        position?: string;
       };
       ctas: CtaLink[];
       stats: StatItem[];
@@ -191,6 +192,7 @@ export type PressKitConfig = {
     description: string;
     playlists: SpotifyPlaylist[];
     badgeLabel: string;
+    useThemeColor?: boolean;
   };
   brands: {
     eyebrow: string;
@@ -199,12 +201,20 @@ export type PressKitConfig = {
     supportingText: string;
     categories: string[];
     itemLabel: string;
-    items: string[];
-    fit: {
+    items: Array<{ name: string; logo?: string; logoInvert?: boolean; href?: string } | string>;
+    fit?: {
       eyebrow: string;
       title: string;
       points: string[];
     };
+  };
+  rider?: {
+    eyebrow: string;
+    title: string;
+    groups: Array<{
+      title: string;
+      items: string[];
+    }>;
   };
   contact: {
     eyebrow: string;

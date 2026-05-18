@@ -11,7 +11,7 @@ export function GalleryPreviewSection({
   gallery,
   galleryHref,
 }: GalleryPreviewSectionProps) {
-  const previewImages = gallery.images.slice(0, 4);
+  const previewImages = gallery.images.slice(0, 3);
 
   return (
     <section

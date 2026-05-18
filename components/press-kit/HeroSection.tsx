@@ -90,7 +90,8 @@ const socialColorClassMap = {
     "border-[#E4405F]/40 bg-[linear-gradient(135deg,#F58529_0%,#DD2A7B_55%,#8134AF_100%)] text-white",
   tiktok: "border-white/20 bg-black text-white",
   youtube: "border-[#FF0000]/40 bg-[#FF0000] text-white",
-  spotify: "border-[#1DB954]/40 bg-[#1DB954] text-white",
+  spotify:
+    "border-[rgb(var(--pk-accent-rgb)/0.4)] bg-[var(--pk-accent)] text-white",
   soundcloud: "border-[#FF5500]/40 bg-[#FF5500] text-white",
   "apple-music": "border-[#FA243C]/40 bg-[#FA243C] text-white",
 } as const;
@@ -235,10 +236,11 @@ export function HeroSection({
             <img
               src={hero.image.src}
               alt={hero.image.alt}
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover"
+              style={{ objectPosition: hero.image.position ?? "center" }}
             />
           ) : (
-            <div className="h-full w-full bg-[linear-gradient(180deg,#120805_0%,#050505_100%)]" />
+            <div className="h-full w-full bg-[var(--pk-bg)]" />
           )}
           <div className="absolute inset-0 bg-black/70" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgb(var(--pk-accent-rgb)/0.22),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.06),transparent_24%),radial-gradient(circle_at_50%_100%,rgb(var(--pk-accent-rgb)/0.12),transparent_32%)]" />
@@ -335,10 +337,11 @@ export function HeroSection({
             <img
               src={hero.image.src}
               alt={hero.image.alt}
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover"
+              style={{ objectPosition: hero.image.position ?? "center" }}
             />
           ) : (
-            <div className="h-full w-full bg-[linear-gradient(180deg,#120805_0%,#050505_100%)]" />
+            <div className="h-full w-full bg-[var(--pk-bg)]" />
           )}
           <div className="absolute inset-0 bg-black/60" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgb(var(--pk-accent-rgb)/0.22),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_24%),radial-gradient(circle_at_50%_100%,rgb(var(--pk-accent-rgb)/0.12),transparent_32%)]" />
@@ -412,9 +415,9 @@ export function HeroSection({
 
   return (
     <section id="home" className="relative scroll-mt-24 overflow-hidden pt-20 md:pt-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(181,31,36,0.22),transparent_24%),radial-gradient(circle_at_82%_8%,rgba(217,37,42,0.08),transparent_20%),radial-gradient(circle_at_50%_100%,rgba(255,255,255,0.035),transparent_30%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgb(var(--pk-accent-rgb)/0.22),transparent_24%),radial-gradient(circle_at_82%_8%,rgb(var(--pk-accent-rgb)/0.08),transparent_20%),radial-gradient(circle_at_50%_100%,rgba(255,255,255,0.035),transparent_30%)]" />
       <div className="absolute inset-0 opacity-15 [background-image:linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:34px_34px]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#160304]/15 via-transparent to-[#050505]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--pk-bg)]/15 via-transparent to-[var(--pk-bg)]" />
 
       <motion.div
         className="relative mx-auto max-w-7xl px-4 pb-8 md:px-6 md:pb-12"
@@ -460,7 +463,7 @@ export function HeroSection({
                     href={cta.href}
                     className={
                       cta.variant === "primary"
-                        ? "inline-flex min-w-0 items-center justify-center rounded-full bg-[var(--pk-accent)] px-4 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-white shadow-[0_18px_45px_rgba(181,31,36,0.22)] transition hover:-translate-y-0.5 hover:bg-[var(--pk-accent-strong)] md:px-7 md:text-[11px] md:tracking-[0.22em]"
+                        ? "inline-flex min-w-0 items-center justify-center rounded-full bg-[var(--pk-accent)] px-4 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-white shadow-[0_18px_45px_rgb(var(--pk-accent-rgb)/0.22)] transition hover:-translate-y-0.5 hover:bg-[var(--pk-accent-strong)] md:px-7 md:text-[11px] md:tracking-[0.22em]"
                         : "inline-flex min-w-0 items-center justify-center rounded-full border border-white/14 bg-white/[0.04] px-3 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.12em] text-white/82 transition hover:-translate-y-0.5 hover:border-white/22 hover:bg-white/[0.08] hover:text-white md:px-5 md:text-[11px] md:tracking-[0.18em]"
                     }
                   >
@@ -474,7 +477,7 @@ export function HeroSection({
                     rel={cta.external ? "noreferrer" : undefined}
                     className={
                       cta.variant === "primary"
-                        ? "inline-flex min-w-0 items-center justify-center rounded-full bg-[var(--pk-accent)] px-4 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-white shadow-[0_18px_45px_rgba(181,31,36,0.22)] transition hover:-translate-y-0.5 hover:bg-[var(--pk-accent-strong)] md:px-7 md:text-[11px] md:tracking-[0.22em]"
+                        ? "inline-flex min-w-0 items-center justify-center rounded-full bg-[var(--pk-accent)] px-4 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-white shadow-[0_18px_45px_rgb(var(--pk-accent-rgb)/0.22)] transition hover:-translate-y-0.5 hover:bg-[var(--pk-accent-strong)] md:px-7 md:text-[11px] md:tracking-[0.22em]"
                         : "inline-flex min-w-0 items-center justify-center rounded-full border border-white/14 bg-white/[0.04] px-3 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.12em] text-white/82 transition hover:-translate-y-0.5 hover:border-white/22 hover:bg-white/[0.08] hover:text-white md:px-5 md:text-[11px] md:tracking-[0.18em]"
                     }
                   >
@@ -497,7 +500,8 @@ export function HeroSection({
                 <img
                   src={hero.image.src}
                   alt={hero.image.alt}
-                  className="h-[42svh] w-full rounded-[1.2rem] object-cover object-[center_22%] md:h-[66svh] md:rounded-[1.5rem]"
+                  className="h-[42svh] w-full rounded-[1.2rem] object-cover md:h-[66svh] md:rounded-[1.5rem]"
+                  style={{ objectPosition: hero.image.position ?? "center 22%" }}
                 />
               ) : (
                 heroFallback

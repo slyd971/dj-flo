@@ -231,9 +231,6 @@ export function VideoSection({ videos, maxItems }: VideoSectionProps) {
                         </button>
                       )}
 
-                      <div className="absolute left-3 top-3 z-20 rounded-full border border-white/10 bg-black/60 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-white/82 backdrop-blur-md md:left-4 md:top-4 md:text-[10px]">
-                        {video.title}
-                      </div>
                       <div
                         className={`absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/90 via-black/75 to-transparent px-3 pb-3 pt-12 transition-opacity duration-300 md:px-4 md:pb-4 ${
                           activeVideoId === video.id
@@ -284,18 +281,6 @@ export function VideoSection({ videos, maxItems }: VideoSectionProps) {
                   )}
                 </div>
 
-                {(video.description || video.source === "youtube") && (
-                  <div className="space-y-2 px-4 py-4">
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--pk-accent)]">
-                      {video.source === "youtube" ? "Intégration YouTube" : "Vidéo"}
-                    </div>
-                    {video.description ? (
-                      <p className="text-sm leading-6 text-white/70">
-                        {video.description}
-                      </p>
-                    ) : null}
-                  </div>
-                )}
               </article>
             );
           })}

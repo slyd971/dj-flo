@@ -6,6 +6,11 @@ export { getClientBySlug, getClients };
 export type { ClientConfig };
 
 export const defaultClientSlug = "djslyd";
+const deploymentClientEnvKeys = [
+  "PRESS_KIT_CLIENT_SLUG",
+  "SLYD_PRESS_KIT_CLIENT_SLUG",
+  "CLIENT_SLUG",
+] as const;
 
 export function getDefaultClient() {
   const client = getClientBySlug(defaultClientSlug);
@@ -37,10 +42,29 @@ export function getClientByHost(hostname?: string | null) {
   return null;
 }
 
+export function getDeploymentClientSlug() {
+  for (const key of deploymentClientEnvKeys) {
+    const slug = process.env[key]?.trim().toLowerCase();
+
+    if (slug) {
+      return slug;
+    }
+  }
+
+  return null;
+}
+
+export function getDeploymentClient() {
+  return getClientBySlug(getDeploymentClientSlug());
+}
+
 export function resolveClient(hostname?: string | null, slug?: string | null) {
+  const isLocal = isLocalHostname(hostname);
+
   return (
+    (isLocal ? getClientBySlug(slug) : null) ??
     getClientByHost(hostname) ??
-    getClientBySlug(slug) ??
-    (isLocalHostname(hostname) ? getDefaultClient() : null)
+    (isLocal ? null : getDeploymentClient()) ??
+    (isLocal ? getDefaultClient() : null)
   );
 }

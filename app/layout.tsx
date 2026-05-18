@@ -1,11 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { getDefaultClient } from "@/lib/clients";
 import { getRequiredRequestClient } from "@/lib/clients/server";
 import { buildClientMetadata, buildSiteJsonLd } from "@/lib/seo";
 
-export function generateMetadata(): Metadata {
-  return buildClientMetadata(getDefaultClient());
+export async function generateMetadata(): Promise<Metadata> {
+  const client = await getRequiredRequestClient();
+
+  return buildClientMetadata(client);
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

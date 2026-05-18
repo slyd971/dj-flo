@@ -10,7 +10,7 @@ export function AboutSection({ about }: AboutSectionProps) {
       id="about"
       className="relative scroll-mt-24 overflow-hidden px-4 py-10 md:px-6 md:py-20"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(181,31,36,0.10),transparent_25%),radial-gradient(circle_at_80%_90%,rgba(255,255,255,0.03),transparent_20%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgb(var(--pk-accent-rgb)/0.10),transparent_25%),radial-gradient(circle_at_80%_90%,rgba(255,255,255,0.03),transparent_20%)]" />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--pk-accent)] md:mb-6 md:text-xs md:tracking-[0.35em]">
