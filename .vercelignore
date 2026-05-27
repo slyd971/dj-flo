@@ -5,4 +5,9 @@ node_modules
 .env
 .env.local
 .vercel
-public/slyd/*.mov
+public/slyd
+public/yoruboy
+public/Paul-Kéranne
+public/arthur-chaps
+public/silver-dj
+public/press-kit
