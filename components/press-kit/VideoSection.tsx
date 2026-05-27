@@ -9,8 +9,6 @@ type VideoSectionProps = {
   maxItems?: number;
 };
 
-const DEFAULT_VIDEO_POSTER_SRC = "/press-kit/live/live-crowd.jpg";
-
 function getVideoAspectClass(
   source: PressKitConfig["videos"]["items"][number]["source"]
 ) {
@@ -164,7 +162,7 @@ export function VideoSection({ videos, maxItems }: VideoSectionProps) {
 
         <div className="grid items-stretch gap-4 md:grid-cols-3 md:gap-5">
           {displayedVideos.map((video) => {
-            const effectivePoster = video.poster || DEFAULT_VIDEO_POSTER_SRC;
+            const hasPoster = Boolean(video.poster);
             const aspectClass = getVideoAspectClass(video.source);
 
             return (
@@ -190,9 +188,9 @@ export function VideoSection({ videos, maxItems }: VideoSectionProps) {
                     </>
                   ) : (
                     <>
-                      {activeVideoId !== video.id && (
+                      {activeVideoId !== video.id && hasPoster && (
                         <img
-                          src={effectivePoster}
+                          src={video.poster}
                           alt={video.title}
                           className="absolute inset-0 z-0 h-full w-full scale-[1.16] object-cover"
                         />
@@ -203,18 +201,20 @@ export function VideoSection({ videos, maxItems }: VideoSectionProps) {
                           videoRefs.current[video.id] = element;
                         }}
                         className={`pointer-events-none h-full w-full object-cover ${
-                          activeVideoId === video.id ? "opacity-100" : "opacity-0"
+                          activeVideoId === video.id || !hasPoster
+                            ? "opacity-100"
+                            : "opacity-0"
                         }`}
                         src={video.src}
                         controls={false}
-                        preload="metadata"
+                        preload={hasPoster ? "metadata" : "auto"}
                         playsInline
                         onPlay={() => handlePlay(video.id)}
                         onPause={() => handlePause(video.id)}
                         onEnded={() => setActiveVideoId(null)}
                         onTimeUpdate={() => handleTimeUpdate(video.id)}
                         onLoadedMetadata={() =>
-                          handleLoadedMetadata(video.id, Boolean(effectivePoster))
+                          handleLoadedMetadata(video.id, hasPoster)
                         }
                       />
 

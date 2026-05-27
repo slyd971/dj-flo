@@ -230,6 +230,14 @@ export type PressKitConfig = {
     homepageCtaLabel: string;
     images: GalleryImage[];
   };
+  footer?: {
+    availabilityText?: string;
+    navigationLabel?: string;
+    socialLabel?: string;
+    bookingLabel?: string;
+    fullGalleryLabel?: string;
+    allVideosLabel?: string;
+  };
 };
 
 export type ClientIntakeConfig = {

@@ -29,6 +29,10 @@ export function Footer({
 }: FooterProps) {
   const socialLinks = getSocialLinks(client);
   const hasBookingEmail = Boolean(client.bookingEmail);
+  const footerLabels = client.pressKit.footer;
+  const availabilityText =
+    footerLabels?.availabilityText ??
+    "Disponible pour clubs, festivals, événements privés et formats institutionnels.";
 
   return (
     <footer className="border-t border-white/10 bg-black px-4 py-7 text-white md:px-6 md:py-12">
@@ -41,8 +45,7 @@ export function Footer({
             {client.name}
           </Link>
           <p className="mt-3 max-w-md text-sm leading-6 text-white/58 sm:max-w-none">
-            {client.tagline}. Disponible pour clubs, festivals, événements privés
-            et formats institutionnels.
+            {client.tagline}. {availabilityText}
           </p>
           <div className="mt-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/35">
             {client.city} · {client.country}
@@ -51,7 +54,7 @@ export function Footer({
 
         <div>
           <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--pk-accent)] md:tracking-[0.24em]">
-            Navigation
+            {footerLabels?.navigationLabel ?? "Navigation"}
           </div>
           <div className="mt-3 grid gap-2 text-sm text-white/68">
             {navigation.items.map((item) => (
@@ -64,11 +67,11 @@ export function Footer({
               </a>
             ))}
             <Link href={galleryHref} className="transition hover:text-white">
-              Galerie complète
+              {footerLabels?.fullGalleryLabel ?? "Galerie complète"}
             </Link>
             {videosHref && (
               <Link href={videosHref} className="transition hover:text-white">
-                Toutes les vidéos
+                {footerLabels?.allVideosLabel ?? "Toutes les vidéos"}
               </Link>
             )}
           </div>
@@ -76,7 +79,7 @@ export function Footer({
 
         <div>
           <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--pk-accent)] md:tracking-[0.24em]">
-            Réseaux
+            {footerLabels?.socialLabel ?? "Réseaux"}
           </div>
           <div className="mt-3 grid gap-2 text-sm text-white/68">
             {socialLinks.map((item) => (
@@ -95,7 +98,7 @@ export function Footer({
 
         <div className="col-span-2 sm:col-span-1">
           <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--pk-accent)] md:tracking-[0.24em]">
-            Booking
+            {footerLabels?.bookingLabel ?? "Booking"}
           </div>
           <div className="mt-3 grid gap-2 text-sm text-white/68">
             {hasBookingEmail ? (
@@ -128,6 +131,14 @@ export function Footer({
           <div className="mt-5 text-[10px] uppercase tracking-[0.18em] text-white/30">
             © {new Date().getFullYear()} {client.name} Press Kit
           </div>
+          <a
+            href="https://presskit.fr"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-flex text-[10px] uppercase tracking-[0.18em] text-white/30 transition hover:text-white/60"
+          >
+            Powered by presskit.fr
+          </a>
         </div>
       </div>
     </footer>

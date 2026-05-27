@@ -2,12 +2,14 @@ import { arthurChapsClient } from "@/data/clients/arthur-chaps";
 import { djslydClient } from "@/data/clients/djslyd";
 import { paulKeranneClient } from "@/data/clients/paul-keranne";
 import { silverDjClient } from "@/data/clients/silver-dj";
+import { soyumiClient } from "@/data/clients/soyumi";
 import { yoruboyDjClient } from "@/data/clients/yoruboy-dj";
 import type { ClientConfig } from "@/data/clients/types";
 
 export const clientRegistry = [
   djslydClient,
   silverDjClient,
+  soyumiClient,
   yoruboyDjClient,
   paulKeranneClient,
   arthurChapsClient,

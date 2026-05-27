@@ -47,7 +47,9 @@ export function GalleryPreviewSection({
               className="absolute inset-0 transition duration-700 group-hover:scale-105"
               style={{
                 backgroundImage: `url(${image.src})`,
-                backgroundSize: `${(image.previewScale ?? 1) * 100}%`,
+                backgroundSize: image.previewScale
+                  ? `${image.previewScale * 100}%`
+                  : "cover",
                 backgroundPosition:
                   image.position ?? `center ${image.previewOffsetY ?? "50%"}`,
                 backgroundRepeat: "no-repeat",
