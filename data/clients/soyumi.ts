@@ -75,7 +75,7 @@ const soyumiPressKit: PressKitConfig = {
       ],
       stats: [
         { value: "PARIS", label: "Based in" },
-        { value: "WORLDWIDE", label: "Available" },
+        { value: "+100", label: "Bookings 2025" },
         { value: "8K", label: "Instagram followers" },
         { value: "AFRO + OPEN", label: "Format" },
       ],
@@ -128,7 +128,7 @@ const soyumiPressKit: PressKitConfig = {
       stats: [
         { value: "PIONEER", label: "DDJ-SR2 / Serato" },
         { value: "8K", label: "Instagram followers" },
-        { value: "WORLDWIDE", label: "Availability" },
+        { value: "+100", label: "Bookings 2025" },
         { value: "OPEN FORMAT", label: "Club & lounge" },
       ],
       proofline: "Paris · Sydney · Perth · Bali · Guadeloupe",
@@ -307,7 +307,7 @@ const soyumiPressKit: PressKitConfig = {
         src: "/soyumi/gallery/gallery-soyumi-1.jpeg",
         alt: "Soyumi behind the decks",
         size: "md:col-span-2",
-        position: "center 18%",
+        position: "center 44%",
         previewScale: 1.08,
       },
       {
