@@ -14,7 +14,6 @@ const buildOnlyPackages = [
   "node_modules/lightningcss/**",
   "node_modules/lightningcss-darwin-x64/**",
   "node_modules/lightningcss-linux-x64-gnu/**",
-  "node_modules/@swc/**",
   "node_modules/magic-string/**",
   // Sharp image binaries — Vercel CDN handles image optimization
   "node_modules/@img/**",
