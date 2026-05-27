@@ -1,3 +1,5 @@
+"use client";
+
 import { Globe2, MapPin } from "lucide-react";
 import type { PressKitConfig } from "@/data/config";
 

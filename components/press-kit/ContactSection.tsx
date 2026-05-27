@@ -1,3 +1,5 @@
+"use client";
+
 import { Instagram, Mail, Music2, Phone, Youtube } from "lucide-react";
 import type { ContactMethod, PressKitConfig } from "@/data/config";
 
