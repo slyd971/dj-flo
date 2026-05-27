@@ -1,12 +1,27 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { getRequiredRequestClient } from "@/lib/clients/server";
+import { resolveRequestClient } from "@/lib/clients/server";
 import { buildClientMetadata, buildSiteJsonLd } from "@/lib/seo";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const client = await getRequiredRequestClient();
+const fallbackMetadata: Metadata = {
+  title: "Press Kit",
+  description: "Artist press kit",
+};
 
-  return buildClientMetadata(client);
+export async function generateMetadata(): Promise<Metadata> {
+  try {
+    const client = await resolveRequestClient();
+
+    if (!client) {
+      console.error("[layout:generateMetadata] No client resolved for this host — check PRESS_KIT_CLIENT_SLUG env var or domain config");
+      return fallbackMetadata;
+    }
+
+    return buildClientMetadata(client);
+  } catch (error) {
+    console.error("[layout:generateMetadata] Unexpected error:", error);
+    return fallbackMetadata;
+  }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -14,17 +29,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 
 async function RootLayoutContent({ children }: { children: React.ReactNode }) {
-  const client = await getRequiredRequestClient();
-  const siteJsonLd = buildSiteJsonLd(client);
+  let siteJsonLd: ReturnType<typeof buildSiteJsonLd> | null = null;
+
+  try {
+    const client = await resolveRequestClient();
+
+    if (!client) {
+      console.error("[layout:RootLayoutContent] No client resolved — rendering without JSON-LD");
+    } else {
+      siteJsonLd = buildSiteJsonLd(client);
+    }
+  } catch (error) {
+    console.error("[layout:RootLayoutContent] Unexpected error:", error);
+  }
 
   return (
     <html lang="fr">
       <body>
         {children}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
-        />
+        {siteJsonLd ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+          />
+        ) : null}
       </body>
     </html>
   );

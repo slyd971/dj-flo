@@ -32,7 +32,11 @@ export async function resolveRequestClient(slug?: string | null) {
   const isLocal = isLocalHostname(hostname);
   const deploymentSlug = getDeploymentClientSlug();
 
-  return (
+  if (!isLocal) {
+    console.log(`[resolveRequestClient] hostname=${hostname} deploymentSlug=${deploymentSlug ?? "none"}`);
+  }
+
+  const client =
     (isLocal ? getLocalClientBySlug(normalizedSlug) : null) ??
     (await getAirtableClientByHost(hostname)) ??
     (isLocal ? await getAirtableClientBySlug(normalizedSlug) : null) ??
@@ -41,8 +45,13 @@ export async function resolveRequestClient(slug?: string | null) {
     (!isLocal && deploymentSlug
       ? (await getAirtableClientBySlug(deploymentSlug)) ?? getDeploymentClient()
       : null) ??
-    (isLocal ? getDefaultClient() : null)
-  );
+    (isLocal ? getDefaultClient() : null);
+
+  if (!isLocal && !client) {
+    console.error(`[resolveRequestClient] No client found for hostname=${hostname} deploymentSlug=${deploymentSlug ?? "none"} — set PRESS_KIT_CLIENT_SLUG env var in Vercel`);
+  }
+
+  return client;
 }
 
 export async function getRequiredRequestClient(slug?: string | null) {
