@@ -57,4 +57,5 @@ export type ClientConfig = {
   defaultTheme: TemplateId;
   defaultVariant: TemplateVariantId;
   pressKit: PressKitConfig;
+  languageSwitch?: { label: string; href: string; active?: boolean }[];
 };
