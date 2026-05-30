@@ -294,20 +294,21 @@ const mackPressKitEn: PressKitConfig = {
     badgeLabel: "DJ MACK playlists",
   },
   brands: {
-    eyebrow: "DJ MACK in action",
+    eyebrow: "",
     title: "Flyers as proof,\nscenes as receipts.",
     intro:
       "A blog-style wall of event flyers showing the movement behind the name: carnivals, Soca parties, club nights and cultural moments carried by DJ MACK's Afro-Caribbean identity.",
     supportingText:
       "Each visual works as proof of field presence: active communities, recurring formats and promoters who trust him to host, energize and connect the room.",
-    categories: ["Carnivals", "Soca events", "Club nights", "International formats"],
-    itemLabel: "Event proof",
+    categories: [],
+    itemLabel: "",
     hideItemText: true,
+    hideItemFrame: true,
     items: [
-      { name: "DJ MACK in action 01", logo: "/mack/flyers/flyer-1.webp" },
-      { name: "DJ MACK in action 02", logo: "/mack/flyers/flyer-2.jpg" },
-      { name: "DJ MACK in action 03", logo: "/mack/flyers/flyer-3.jpg" },
-      { name: "DJ MACK in action 04", logo: "/mack/flyers/flyer-4.jpg" },
+      { name: "Flyer 01", logo: "/mack/flyers/flyer-1.webp" },
+      { name: "Flyer 02", logo: "/mack/flyers/flyer-2.jpg" },
+      { name: "Flyer 03", logo: "/mack/flyers/flyer-3.jpg" },
+      { name: "Flyer 04", logo: "/mack/flyers/flyer-4.jpg" },
     ],
     fit: {
       eyebrow: "Why it matters",

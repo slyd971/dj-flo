@@ -11,18 +11,23 @@ function BrandCard({
   item,
   itemLabel,
   hideItemText,
+  hideItemFrame,
 }: {
   item: BrandItem;
   itemLabel: string;
   hideItemText?: boolean;
+  hideItemFrame?: boolean;
 }) {
   const name = typeof item === "string" ? item : item.name;
   const logo = typeof item === "string" ? undefined : item.logo;
   const logoInvert = typeof item === "string" ? false : item.logoInvert;
   const href = typeof item === "string" ? undefined : item.href;
+  const cardClassName = hideItemFrame
+    ? "group flex h-full flex-col justify-center"
+    : "group flex h-full flex-col justify-between rounded-[1.2rem] border border-white/10 bg-white/[0.015] p-5 backdrop-blur-sm transition hover:border-[rgb(var(--pk-accent-rgb)/0.4)] hover:bg-white/[0.03] hover:shadow-[0_0_30px_rgb(var(--pk-accent-rgb)/0.12)] md:rounded-[1.4rem] md:p-6";
 
   const inner = (
-    <div className="group flex h-full flex-col justify-between rounded-[1.2rem] border border-white/10 bg-white/[0.015] p-5 backdrop-blur-sm transition hover:border-[rgb(var(--pk-accent-rgb)/0.4)] hover:bg-white/[0.03] hover:shadow-[0_0_30px_rgb(var(--pk-accent-rgb)/0.12)] md:rounded-[1.4rem] md:p-6">
+    <div className={cardClassName}>
       {!hideItemText && (
         <div>
           <div className="text-[8px] uppercase tracking-[0.22em] text-white/35 md:text-[9px] md:tracking-[0.28em]">
@@ -72,9 +77,11 @@ export function BrandsSection({ brands }: BrandsSectionProps) {
       <div className="relative mx-auto max-w-[1200px]">
         <div className="grid gap-6 md:gap-8 xl:grid-cols-[0.95fr_1.05fr] xl:items-start">
           <div>
-            <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--pk-accent)] md:mb-4 md:text-xs md:tracking-[0.36em]">
-              {brands.eyebrow}
-            </div>
+            {brands.eyebrow && (
+              <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--pk-accent)] md:mb-4 md:text-xs md:tracking-[0.36em]">
+                {brands.eyebrow}
+              </div>
+            )}
 
             <h2 className="max-w-2xl whitespace-pre-line text-3xl font-black uppercase leading-[1.02] tracking-tight md:text-4xl xl:text-[3.4rem]">
               {brands.title}
@@ -94,16 +101,18 @@ export function BrandsSection({ brands }: BrandsSectionProps) {
           </div>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-2 md:mt-8 md:gap-2.5">
-          {brands.categories.map((item) => (
-            <div
-              key={item}
-              className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-[8px] font-medium uppercase tracking-[0.2em] text-white/55 md:px-4 md:text-[9px] md:tracking-[0.28em]"
-            >
-              {item}
-            </div>
-          ))}
-        </div>
+        {brands.categories.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-2 md:mt-8 md:gap-2.5">
+            {brands.categories.map((item) => (
+              <div
+                key={item}
+                className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-[8px] font-medium uppercase tracking-[0.2em] text-white/55 md:px-4 md:text-[9px] md:tracking-[0.28em]"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className={`mt-6 grid items-stretch gap-4 md:mt-8 ${brands.fit ? "xl:grid-cols-[1.15fr_0.85fr]" : ""}`}>
           <div className="grid grid-cols-3 gap-3 md:gap-4">
@@ -115,6 +124,7 @@ export function BrandsSection({ brands }: BrandsSectionProps) {
                   item={item}
                   itemLabel={brands.itemLabel}
                   hideItemText={brands.hideItemText}
+                  hideItemFrame={brands.hideItemFrame}
                 />
               );
             })}

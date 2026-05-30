@@ -202,6 +202,7 @@ export type PressKitConfig = {
     categories: string[];
     itemLabel: string;
     hideItemText?: boolean;
+    hideItemFrame?: boolean;
     items: Array<{ name: string; logo?: string; logoInvert?: boolean; href?: string } | string>;
     fit?: {
       eyebrow: string;
