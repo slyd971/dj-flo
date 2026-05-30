@@ -462,7 +462,7 @@ const mackPressKitFr: PressKitConfig = {
   about: {
     ...mackPressKitEn.about,
     eyebrow: "Bio",
-    title: "Figure Afro-Caribéenne,\nMC hors norme.",
+    title: "Une référence Afro-Caribéenne,\nun MC hors norme.",
     signatureQuote:
       "DJ MACK ne se contente pas de mixer: il retourne la scène.",
     supportingText:
@@ -577,7 +577,7 @@ const mackPressKitFr: PressKitConfig = {
   },
   contact: {
     ...mackPressKitEn.contact,
-    title: "Réservations & demandes pro.",
+    title: "Bookings & demandes pro.",
     description:
       "Pour festivals, carnavals, clubs, événements privés ou demandes internationales, contactez directement l'équipe DJ MACK.",
     methods: [
@@ -616,7 +616,7 @@ const mackPressKitFr: PressKitConfig = {
       "Disponible pour carnavals, festivals, clubs, événements privés et formats Afro-Caribéens internationaux.",
     navigationLabel: "Navigation",
     socialLabel: "Réseaux",
-    bookingLabel: "Réservations",
+    bookingLabel: "Bookings",
     fullGalleryLabel: "Galerie complète",
     allVideosLabel: "Toutes les vidéos",
   },
