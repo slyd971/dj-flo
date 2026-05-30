@@ -302,6 +302,7 @@ const mackPressKitEn: PressKitConfig = {
       "Each visual works as proof of field presence: active communities, recurring formats and promoters who trust him to host, energize and connect the room.",
     categories: ["Carnivals", "Soca events", "Club nights", "International formats"],
     itemLabel: "Event proof",
+    hideItemText: true,
     items: [
       { name: "DJ MACK in action 01", logo: "/mack/flyers/flyer-1.webp" },
       { name: "DJ MACK in action 02", logo: "/mack/flyers/flyer-2.jpg" },

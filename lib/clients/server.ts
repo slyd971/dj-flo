@@ -8,7 +8,7 @@ import {
   getDeploymentClient,
   getDeploymentClientSlug,
 } from "@/lib/clients";
-import { isLocalHostname, normalizeHostname } from "@/lib/domains";
+import { isLocalHostname, matchesHostname, normalizeHostname } from "@/lib/domains";
 
 export type ClientSlugSearchParams = {
   client?: string;
@@ -31,17 +31,30 @@ export async function resolveRequestClient(slug?: string | null) {
   const normalizedSlug = slug?.toLowerCase() ?? null;
   const isLocal = isLocalHostname(hostname);
   const deploymentSlug = getDeploymentClientSlug();
+  const requestedLocalClient = getLocalClientBySlug(normalizedSlug);
+  const localHostClient = getLocalClientByHost(hostname);
+  const requestedClientForHost =
+    !isLocal && requestedLocalClient && localHostClient
+      ? [
+          requestedLocalClient.domain,
+          requestedLocalClient.vercelSubdomain,
+          ...(requestedLocalClient.domainAliases ?? []),
+        ].some((host) => matchesHostname(hostname, host))
+        ? requestedLocalClient
+        : null
+      : null;
 
   if (!isLocal) {
     console.log(`[resolveRequestClient] hostname=${hostname} deploymentSlug=${deploymentSlug ?? "none"}`);
   }
 
   const client =
-    (isLocal ? getLocalClientBySlug(normalizedSlug) : null) ??
+    (isLocal ? requestedLocalClient : null) ??
+    requestedClientForHost ??
     (await getAirtableClientByHost(hostname)) ??
     (isLocal ? await getAirtableClientBySlug(normalizedSlug) : null) ??
-    getLocalClientByHost(hostname) ??
-    (isLocal ? getLocalClientBySlug(normalizedSlug) : null) ??
+    localHostClient ??
+    (isLocal ? requestedLocalClient : null) ??
     (!isLocal && deploymentSlug
       ? (await getAirtableClientBySlug(deploymentSlug)) ?? getDeploymentClient()
       : null) ??

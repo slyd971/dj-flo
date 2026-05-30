@@ -7,7 +7,15 @@ type BrandsSectionProps = {
   brands: PressKitConfig["brands"];
 };
 
-function BrandCard({ item, itemLabel }: { item: BrandItem; itemLabel: string }) {
+function BrandCard({
+  item,
+  itemLabel,
+  hideItemText,
+}: {
+  item: BrandItem;
+  itemLabel: string;
+  hideItemText?: boolean;
+}) {
   const name = typeof item === "string" ? item : item.name;
   const logo = typeof item === "string" ? undefined : item.logo;
   const logoInvert = typeof item === "string" ? false : item.logoInvert;
@@ -15,26 +23,30 @@ function BrandCard({ item, itemLabel }: { item: BrandItem; itemLabel: string }) 
 
   const inner = (
     <div className="group flex h-full flex-col justify-between rounded-[1.2rem] border border-white/10 bg-white/[0.015] p-5 backdrop-blur-sm transition hover:border-[rgb(var(--pk-accent-rgb)/0.4)] hover:bg-white/[0.03] hover:shadow-[0_0_30px_rgb(var(--pk-accent-rgb)/0.12)] md:rounded-[1.4rem] md:p-6">
-      <div>
-        <div className="text-[8px] uppercase tracking-[0.22em] text-white/35 md:text-[9px] md:tracking-[0.28em]">
-          {itemLabel}
+      {!hideItemText && (
+        <div>
+          <div className="text-[8px] uppercase tracking-[0.22em] text-white/35 md:text-[9px] md:tracking-[0.28em]">
+            {itemLabel}
+          </div>
+          <div className="mt-2 text-sm font-black uppercase leading-tight md:text-base">
+            {name}
+          </div>
         </div>
-        <div className="mt-2 text-sm font-black uppercase leading-tight md:text-base">
-          {name}
-        </div>
-      </div>
+      )}
       {logo && (
-        <div className="flex flex-1 items-center justify-center py-6 md:py-8">
+        <div className={`flex flex-1 items-center justify-center ${hideItemText ? "py-0" : "py-6 md:py-8"}`}>
           <Image
             src={logo}
             alt={name}
             width={240}
             height={160}
-            className={`max-h-48 w-full object-contain md:max-h-64${logoInvert ? " invert" : ""}`}
+            className={`${hideItemText ? "max-h-72" : "max-h-48 md:max-h-64"} w-full object-contain${logoInvert ? " invert" : ""}`}
           />
         </div>
       )}
-      <div className="h-px w-[65%] bg-[rgb(var(--pk-accent-rgb)/0.6)] transition group-hover:w-[80%]" />
+      {!hideItemText && (
+        <div className="h-px w-[65%] bg-[rgb(var(--pk-accent-rgb)/0.6)] transition group-hover:w-[80%]" />
+      )}
     </div>
   );
 
@@ -97,7 +109,14 @@ export function BrandsSection({ brands }: BrandsSectionProps) {
           <div className="grid grid-cols-3 gap-3 md:gap-4">
             {brands.items.map((item) => {
               const key = typeof item === "string" ? item : item.name;
-              return <BrandCard key={key} item={item} itemLabel={brands.itemLabel} />;
+              return (
+                <BrandCard
+                  key={key}
+                  item={item}
+                  itemLabel={brands.itemLabel}
+                  hideItemText={brands.hideItemText}
+                />
+              );
             })}
           </div>
 
