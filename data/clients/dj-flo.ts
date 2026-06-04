@@ -59,7 +59,7 @@ const gallery = [
     position: "center 30%",
   },
   {
-    src: "/dj-flo/Photos/autres/DJ Flo 6000x4000.jpg",
+    src: "/dj-flo/optimized/gallery/portrait-hero-4.jpg",
     alt: "DJ Flo portrait",
     position: "center 30%",
     previewOnly: true,
