@@ -12,7 +12,7 @@ const spotifyUrl =
 const spotifyEmbedUrl =
   "https://open.spotify.com/embed/playlist/478ZoJDjn5MPFv0yr78WWq?utm_source=generator";
 const bookingEmail = "contact@djfloparis.com";
-const whatsappHref = "https://wa.me/REMPLACER_PAR_LE_NUMERO";
+const whatsappHref = "https://wa.me/33761672378";
 const heroImage = "/dj-flo/optimized/hero.jpg";
 const logo = "/dj-flo/optimized/djflo-logo.svg";
 
@@ -99,6 +99,7 @@ const floPressKitFr: PressKitConfig = {
     logo: {
       src: logo,
       alt: "Logo DJ FLO",
+      scale: 100,
     },
   },
   navigation: {
@@ -378,7 +379,7 @@ const floPressKitFr: PressKitConfig = {
       },
       {
         label: "WhatsApp",
-        value: "WhatsApp",
+        value: "07 61 67 23 78",
         href: whatsappHref,
         icon: "whatsapp",
         external: true,
