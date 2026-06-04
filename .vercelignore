@@ -18,3 +18,7 @@ public/yoruboy
 public/arthur-chaps
 public/silver-dj
 public/logos
+
+# dj-flo : exclure raw assets, garder seulement optimized/
+public/dj-flo/*
+!public/dj-flo/optimized
