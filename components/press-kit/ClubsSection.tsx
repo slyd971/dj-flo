@@ -32,6 +32,7 @@ function ClubItem({
 
 type ClubsSectionProps = {
   clubs: PressKitConfig["clubs"];
+  brands?: PressKitConfig["brands"];
 };
 
 const iconMap = {
@@ -39,7 +40,14 @@ const iconMap = {
   "map-pin": MapPin,
 };
 
-export function ClubsSection({ clubs }: ClubsSectionProps) {
+export function ClubsSection({ clubs, brands }: ClubsSectionProps) {
+  const inlineBrandLogos =
+    brands?.items
+      .map((item) => (typeof item === "string" ? undefined : item))
+      .filter((item): item is { name: string; logo: string; logoInvert?: boolean } =>
+        Boolean(item?.logo)
+      ) ?? [];
+
   return (
     <section
       id="clubs"
@@ -86,6 +94,26 @@ export function ClubsSection({ clubs }: ClubsSectionProps) {
             );
           })}
         </div>
+
+        {inlineBrandLogos.length > 0 ? (
+          <div className="mt-8 border-t border-white/10 pt-6 md:mt-12 md:pt-8">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+              {inlineBrandLogos.map((brand) => (
+                <div
+                  key={brand.name}
+                  className="flex min-h-24 items-center justify-center rounded-lg border border-white/10 bg-white/[0.025] px-4 py-5"
+                >
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className={`max-h-14 w-full object-contain${brand.logoInvert ? " invert" : ""}`}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </div>
     </section>
   );

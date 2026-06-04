@@ -13,7 +13,8 @@ export function GalleryPreviewSection({
   gallery,
   galleryHref,
 }: GalleryPreviewSectionProps) {
-  const previewImages = gallery.images.slice(0, 3);
+  const regularImages = gallery.images.filter((img) => !img.previewOnly).slice(0, 3);
+  const previewImages = [...regularImages, ...gallery.images.filter((img) => img.previewOnly)];
 
   return (
     <section
@@ -48,7 +49,7 @@ export function GalleryPreviewSection({
             <div
               className="absolute inset-0 transition duration-700 group-hover:scale-105"
               style={{
-                backgroundImage: `url(${image.src})`,
+                backgroundImage: `url(${encodeURI(image.src)})`,
                 backgroundSize: image.previewScale
                   ? `${image.previewScale * 100}%`
                   : "cover",

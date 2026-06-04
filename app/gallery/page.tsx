@@ -103,7 +103,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
 
         {hasGallery ? (
           <GalleryClient
-            images={pressKitConfig.gallery.images}
+            images={pressKitConfig.gallery.images.filter((img) => !img.previewOnly)}
             viewLabel={pressKitConfig.ui.galleryViewLabel}
             downloadLabel={pressKitConfig.ui.galleryDownloadLabel}
             closeLabel={pressKitConfig.ui.galleryCloseLabel}

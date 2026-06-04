@@ -61,6 +61,7 @@ export function buildClientMetadata(
   const canonicalUrl = getCanonicalUrl(client, path);
   const imageUrl = new URL(image, canonicalUrl).toString();
   const languageAlternates = getLanguageAlternates(client);
+  const isEnglish = client.slug.endsWith("-en");
 
   return {
     metadataBase: new URL(`https://${getPrimaryHostname(client)}`),
@@ -92,7 +93,7 @@ export function buildClientMetadata(
       description,
       url: canonicalUrl,
       siteName: client.name,
-      locale: "fr_FR",
+      locale: isEnglish ? "en_GB" : "fr_FR",
       type: "website",
       images: [
         {
@@ -151,6 +152,8 @@ export function buildClientSitemapEntries(
 }
 
 export function buildSiteJsonLd(client: ClientConfig) {
+  const inLanguage = client.slug.endsWith("-en") ? "en-GB" : "fr-FR";
+
   return [
     {
       "@context": "https://schema.org",
@@ -178,7 +181,7 @@ export function buildSiteJsonLd(client: ClientConfig) {
       "@id": `${getCanonicalUrl(client)}#website`,
       url: getCanonicalUrl(client),
       name: client.name,
-      inLanguage: "fr-FR",
+      inLanguage,
       description: client.description,
       publisher: {
         "@id": `${getCanonicalUrl(client)}#artist`,

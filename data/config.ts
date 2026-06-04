@@ -49,6 +49,7 @@ export type GalleryImage = {
   position?: string;
   previewScale?: number;
   previewOffsetY?: string;
+  previewOnly?: boolean;
 };
 
 export type SpotifyPlaylist = {
@@ -62,6 +63,7 @@ export type VideoItemBase = {
   title: string;
   description: string;
   poster?: string;
+  aspect?: "portrait" | "landscape";
 };
 
 export type LocalVideoItem = VideoItemBase & {
@@ -185,6 +187,11 @@ export type PressKitConfig = {
       title: string;
       poster?: string;
     };
+    media?: Array<{
+      src: string;
+      alt: string;
+      label?: string;
+    }>;
     cta?: CtaLink;
   };
   spotify: {
@@ -204,6 +211,7 @@ export type PressKitConfig = {
     itemLabel: string;
     hideItemText?: boolean;
     hideItemFrame?: boolean;
+    inlineBelowClubs?: boolean;
     items: Array<{ name: string; logo?: string; logoInvert?: boolean; href?: string } | string>;
     fit?: {
       eyebrow: string;

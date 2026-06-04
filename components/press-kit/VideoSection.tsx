@@ -9,10 +9,14 @@ type VideoSectionProps = {
   maxItems?: number;
 };
 
-function getVideoAspectClass(
-  source: PressKitConfig["videos"]["items"][number]["source"]
-) {
-  return source === "youtube" ? "aspect-video" : "aspect-[9/16]";
+function getVideoAspectClass(video: PressKitConfig["videos"]["items"][number]) {
+  return video.source === "youtube" || video.aspect === "landscape"
+    ? "aspect-video"
+    : "aspect-[9/16]";
+}
+
+function getVideoObjectClass(video: PressKitConfig["videos"]["items"][number]) {
+  return video.aspect === "landscape" ? "object-contain" : "object-cover";
 }
 
 export function VideoSection({ videos, maxItems }: VideoSectionProps) {
@@ -163,7 +167,8 @@ export function VideoSection({ videos, maxItems }: VideoSectionProps) {
         <div className="grid items-stretch gap-4 md:grid-cols-3 md:gap-5">
           {displayedVideos.map((video) => {
             const hasPoster = Boolean(video.poster);
-            const aspectClass = getVideoAspectClass(video.source);
+            const aspectClass = getVideoAspectClass(video);
+            const objectClass = getVideoObjectClass(video);
 
             return (
               <article
@@ -192,7 +197,7 @@ export function VideoSection({ videos, maxItems }: VideoSectionProps) {
                         <img
                           src={video.poster}
                           alt={video.title}
-                          className="absolute inset-0 z-0 h-full w-full scale-[1.16] object-cover"
+                          className={`absolute inset-0 z-0 h-full w-full ${objectClass}`}
                         />
                       )}
 
@@ -200,7 +205,7 @@ export function VideoSection({ videos, maxItems }: VideoSectionProps) {
                         ref={(element) => {
                           videoRefs.current[video.id] = element;
                         }}
-                        className={`pointer-events-none h-full w-full object-cover ${
+                        className={`pointer-events-none h-full w-full ${objectClass} ${
                           activeVideoId === video.id || !hasPoster
                             ? "opacity-100"
                             : "opacity-0"

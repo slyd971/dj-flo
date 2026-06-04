@@ -30,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 async function RootLayoutContent({ children }: { children: React.ReactNode }) {
   let siteJsonLd: ReturnType<typeof buildSiteJsonLd> | null = null;
+  let htmlLang = "fr";
 
   try {
     const client = await resolveRequestClient();
@@ -37,6 +38,7 @@ async function RootLayoutContent({ children }: { children: React.ReactNode }) {
     if (!client) {
       console.error("[layout:RootLayoutContent] No client resolved — rendering without JSON-LD");
     } else {
+      htmlLang = client.slug.endsWith("-en") ? "en" : "fr";
       siteJsonLd = buildSiteJsonLd(client);
     }
   } catch (error) {
@@ -44,7 +46,7 @@ async function RootLayoutContent({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <html lang="fr">
+    <html lang={htmlLang}>
       <body>
         {children}
         {siteJsonLd ? (

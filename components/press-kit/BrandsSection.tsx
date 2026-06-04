@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { PressKitConfig } from "@/data/config";
 
 type BrandItem = PressKitConfig["brands"]["items"][number];
@@ -40,12 +39,11 @@ function BrandCard({
       )}
       {logo && (
         <div className={`flex flex-1 items-center justify-center ${hideItemText ? "py-0" : "py-6 md:py-8"}`}>
-          <Image
+          <img
             src={logo}
             alt={name}
-            width={240}
-            height={160}
             className={`${hideItemText ? "max-h-72" : "max-h-48 md:max-h-64"} w-full object-contain${logoInvert ? " invert" : ""}`}
+            loading="lazy"
           />
         </div>
       )}

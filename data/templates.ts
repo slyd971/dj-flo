@@ -8,6 +8,7 @@ export type TemplateId =
   | "yellow"
   | "orange"
   | "violet"
+  | "dj-flo"
   | "monochrome";
 
 export type TemplateTheme = {
@@ -99,6 +100,16 @@ export const templateThemes: Record<TemplateId, TemplateTheme> = {
     background: "#090511",
     text: "#FBF8FF",
   },
+  "dj-flo": {
+    id: "dj-flo",
+    label: "DJ Flo",
+    accent: "#4F85FF",
+    accentStrong: "#FF4F6D",
+    accentSoft: "#EEF4FF",
+    accentRgb: "79 133 255",
+    background: "#050505",
+    text: "#FFFFFF",
+  },
   monochrome: {
     id: "monochrome",
     label: "Noir et blanc",
@@ -120,6 +131,7 @@ export const templateThemeOrder: TemplateId[] = [
   "yellow",
   "orange",
   "violet",
+  "dj-flo",
   "monochrome",
 ];
 export const templateVariants: Record<TemplateVariantId, TemplateVariant> = {
@@ -146,6 +158,8 @@ const templateAliases: Record<string, TemplateId> = {
   gold: "yellow",
   bringue: "labringue",
   afro: "labringue",
+  flo: "dj-flo",
+  djflo: "dj-flo",
 };
 
 export function getTemplateTheme(template?: string): TemplateTheme {

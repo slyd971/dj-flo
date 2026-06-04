@@ -115,6 +115,8 @@ export default async function Home({ params, searchParams }: HomeProps) {
   const homeHref =
     client.languageSwitch?.find((item) => item.active)?.href ??
     getArtistHomeHref(pressKitEntry.id);
+  const inlineBrandsBelowClubs =
+    hasBrandsContent(pressKitConfig) && pressKitConfig.brands.inlineBelowClubs;
 
   return (
     <main
@@ -141,7 +143,10 @@ export default async function Home({ params, searchParams }: HomeProps) {
         variant={variant.id}
       />
       <AboutSection about={pressKitConfig.about} />
-      <ClubsSection clubs={pressKitConfig.clubs} />
+      <ClubsSection
+        clubs={pressKitConfig.clubs}
+        brands={inlineBrandsBelowClubs ? pressKitConfig.brands : undefined}
+      />
       {hasGalleryContent(pressKitConfig) && (
         <GalleryPreviewSection
           gallery={pressKitConfig.gallery}
@@ -163,7 +168,7 @@ export default async function Home({ params, searchParams }: HomeProps) {
       {hasSpotifyContent(pressKitConfig) && (
         <SpotifySection spotify={pressKitConfig.spotify} />
       )}
-      {hasBrandsContent(pressKitConfig) && (
+      {hasBrandsContent(pressKitConfig) && !inlineBrandsBelowClubs && (
         <BrandsSection brands={pressKitConfig.brands} />
       )}
       {hasRiderContent(pressKitConfig) && pressKitConfig.rider && (
