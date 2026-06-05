@@ -101,17 +101,73 @@ export function ClubsSection({ clubs, brands }: ClubsSectionProps) {
               {inlineBrandLogos.map((brand) => (
                 <div
                   key={brand.name}
-                  className="flex min-h-24 items-center justify-center rounded-lg border border-white/10 bg-white/[0.025] px-4 py-5"
+                  className="flex min-h-28 items-center justify-center rounded-lg border border-white/15 bg-black px-4 py-5 shadow-[0_18px_45px_rgba(0,0,0,0.28)] md:min-h-32 md:px-5"
                 >
                   <img
                     src={brand.logo}
                     alt={brand.name}
-                    className={`max-h-14 w-full object-contain${brand.logoInvert ? " invert" : ""}`}
+                    className="max-h-16 w-full max-w-[88%] object-contain opacity-95 [filter:brightness(0)_invert(1)] md:max-h-20"
                     loading="lazy"
                   />
                 </div>
               ))}
             </div>
+          </div>
+        ) : null}
+
+        {brands?.feedback ? (
+          <div className="mt-8 border-t border-white/10 pt-6 md:mt-12 md:pt-10">
+            <div className="max-w-3xl">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--pk-accent)] md:text-xs md:tracking-[0.35em]">
+                {brands.feedback.eyebrow}
+              </div>
+              <h3 className="mt-3 text-3xl font-black uppercase leading-tight md:text-5xl">
+                {brands.feedback.title}
+              </h3>
+            </div>
+
+            <div className="mt-6 grid gap-4 md:grid-cols-3 md:gap-5">
+              {brands.feedback.items.map((item) => (
+                <article
+                  key={item.name}
+                  className="flex h-full flex-col rounded-xl border border-white/10 bg-white/[0.025] p-4 md:p-5"
+                >
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="h-14 w-14 shrink-0 rounded-full object-cover"
+                      loading="lazy"
+                    />
+                    <div>
+                      <div className="text-sm font-black uppercase leading-tight text-white">
+                        {item.name}
+                      </div>
+                      <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
+                        {item.role}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-sm leading-6 text-white/68">
+                    “{item.quote}”
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            {brands.feedback.cta ? (
+              <div className="mt-6 flex justify-center">
+                <a
+                  href={brands.feedback.cta.href}
+                  target={brands.feedback.cta.external ? "_blank" : undefined}
+                  rel={brands.feedback.cta.external ? "noreferrer" : undefined}
+                  style={{ backgroundColor: "var(--pk-accent)" }}
+                  className="inline-flex items-center rounded-full px-5 py-3 text-center text-[11px] font-black uppercase tracking-[0.18em] text-white transition hover:opacity-90"
+                >
+                  {brands.feedback.cta.label}
+                </a>
+              </div>
+            ) : null}
           </div>
         ) : null}
       </div>

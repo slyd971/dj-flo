@@ -44,6 +44,7 @@ export function getPressKitEntries(): PressKitEntry[] {
 const sectionHrefMap = {
   about: "#about",
   clubs: "#clubs",
+  highlights: "#highlights",
   gallery: "#gallery",
   videos: "#videos",
   youtube: "#youtube",
@@ -120,6 +121,10 @@ export function hasRiderContent(config: PressKitConfig): boolean {
   return Boolean(config.rider && config.rider.groups.length > 0);
 }
 
+export function hasHighlightsContent(config: PressKitConfig): boolean {
+  return Boolean(config.highlights && config.highlights.items.length > 0);
+}
+
 export function getResolvedNavigation(
   config: PressKitConfig
 ): PressKitConfig["navigation"] {
@@ -130,6 +135,7 @@ export function getResolvedNavigation(
   ]);
 
   if (hasGalleryContent(config)) visibleSections.add(sectionHrefMap.gallery);
+  if (hasHighlightsContent(config)) visibleSections.add(sectionHrefMap.highlights);
   if (hasVideoContent(config)) visibleSections.add(sectionHrefMap.videos);
   if (hasYoutubeContent(config)) visibleSections.add(sectionHrefMap.youtube);
   if (hasSoundContent(config)) visibleSections.add(sectionHrefMap.sound);

@@ -40,7 +40,13 @@ export function YoutubeSection({ youtube }: YoutubeSectionProps) {
           </a>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3 md:gap-5">
+        <div
+          className={
+            youtube.items.length === 1
+              ? "mx-auto grid max-w-4xl gap-4"
+              : "grid gap-4 md:grid-cols-3 md:gap-5"
+          }
+        >
           {youtube.items.map((video) => (
             <article
               key={video.id}

@@ -155,6 +155,16 @@ export type PressKitConfig = {
       items: string[];
     }>;
   };
+  highlights?: {
+    eyebrow: string;
+    title: string;
+    intro?: string;
+    items: Array<{
+      title: string;
+      venue: string;
+      description?: string;
+    }>;
+  };
   sound: {
     eyebrow: string;
     title: string;
@@ -214,6 +224,17 @@ export type PressKitConfig = {
     hideItemFrame?: boolean;
     inlineBelowClubs?: boolean;
     items: Array<{ name: string; logo?: string; logoInvert?: boolean; href?: string } | string>;
+    feedback?: {
+      eyebrow: string;
+      title: string;
+      items: Array<{
+        name: string;
+        role: string;
+        quote: string;
+        image: string;
+      }>;
+      cta?: CtaLink;
+    };
     fit?: {
       eyebrow: string;
       title: string;

@@ -8,6 +8,7 @@ import { Footer } from "@/components/press-kit/Footer";
 import { GalleryPreviewSection } from "@/components/press-kit/GalleryPreviewSection";
 import { Header } from "@/components/press-kit/Header";
 import { HeroSection } from "@/components/press-kit/HeroSection";
+import { HighlightsSection } from "@/components/press-kit/HighlightsSection";
 import { RiderSection } from "@/components/press-kit/RiderSection";
 import { SoundSection } from "@/components/press-kit/SoundSection";
 import { SpotifySection } from "@/components/press-kit/SpotifySection";
@@ -23,6 +24,7 @@ import {
   getResolvedNavigation,
   hasBrandsContent,
   hasGalleryContent,
+  hasHighlightsContent,
   hasRiderContent,
   hasSoundContent,
   hasSpotifyContent,
@@ -111,7 +113,9 @@ export default async function Home({ params, searchParams }: HomeProps) {
   const showLocalSwitchers = await isLocalRequest();
   const navigation = getResolvedNavigation(pressKitConfig);
   const galleryHref = getArtistGalleryHref(pressKitEntry.id);
-  const videosHref = getArtistVideosHref(pressKitEntry.id);
+  const videosHref = hasVideoContent(pressKitConfig)
+    ? getArtistVideosHref(pressKitEntry.id)
+    : "";
   const homeHref =
     client.languageSwitch?.find((item) => item.active)?.href ??
     getArtistHomeHref(pressKitEntry.id);
@@ -147,6 +151,9 @@ export default async function Home({ params, searchParams }: HomeProps) {
         clubs={pressKitConfig.clubs}
         brands={inlineBrandsBelowClubs ? pressKitConfig.brands : undefined}
       />
+      {hasHighlightsContent(pressKitConfig) && pressKitConfig.highlights && (
+        <HighlightsSection highlights={pressKitConfig.highlights} />
+      )}
       {hasGalleryContent(pressKitConfig) && (
         <GalleryPreviewSection
           gallery={pressKitConfig.gallery}
