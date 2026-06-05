@@ -13,10 +13,13 @@ const deploymentClientEnvKeys = [
 ] as const;
 
 export function getDefaultClient() {
-  const client = getClientBySlug(defaultClientSlug);
+  const localDefaultSlug = process.env.LOCAL_PRESS_KIT_CLIENT_SLUG?.trim().toLowerCase();
+  const client = getClientBySlug(localDefaultSlug || defaultClientSlug);
 
   if (!client) {
-    throw new Error(`Default client "${defaultClientSlug}" is not registered.`);
+    throw new Error(
+      `Default client "${localDefaultSlug || defaultClientSlug}" is not registered.`
+    );
   }
 
   return client;

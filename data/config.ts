@@ -163,6 +163,10 @@ export type PressKitConfig = {
       title: string;
       venue: string;
       description?: string;
+      images?: Array<{
+        src: string;
+        alt: string;
+      }>;
     }>;
   };
   sound: {

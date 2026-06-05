@@ -95,11 +95,9 @@ const floPressKitFr: PressKitConfig = {
     items: [
       { label: "À propos", href: "#about" },
       { label: "Clients", href: "#clubs" },
-      { label: "Moments forts", href: "#highlights" },
       { label: "Galerie", href: "#gallery" },
       { label: "Panam' en Fête", href: "#vision" },
       { label: "Musique", href: "#sound" },
-      { label: "Rider", href: "#rider" },
     ],
     cta: {
       label: "Contacter Flo",
@@ -255,24 +253,40 @@ const floPressKitFr: PressKitConfig = {
         venue: "La Sand Fabrik, Pantin",
         description:
           "Un format live et convivial, pensé pour accompagner l'énergie d'une soirée comedy club et prolonger l'ambiance après scène.",
+        images: [
+          { src: "/dj-flo/optimized/highlights/comedy-1.jpg", alt: "Brigade Comedy Club - FLO behind the decks" },
+          { src: "/dj-flo/optimized/highlights/comedy-2.jpg", alt: "Brigade Comedy Club - ambiance soirée" },
+        ],
       },
       {
         title: "Lancement du collectif PANAM' EN FÊTE",
         venue: "Pigalle",
         description:
           "Le point de départ public du collectif imaginé par Flo pour réunir Paris autour de concepts musicaux fédérateurs.",
+        images: [
+          { src: "/dj-flo/optimized/highlights/panam-launch-1.jpg", alt: "Lancement PANAM' EN FÊTE - soirée Pigalle" },
+          { src: "/dj-flo/optimized/highlights/panam-launch-2.jpg", alt: "Lancement PANAM' EN FÊTE - ambiance" },
+        ],
       },
       {
         title: "Gala du Shede Festival",
         venue: "Hôtel de Crillon",
         description:
           "Une prestation dans un cadre palace, avec une direction musicale adaptée à un événement élégant et exigeant.",
+        images: [
+          { src: "/dj-flo/optimized/highlights/crillon-1.jpg", alt: "Gala Shede Festival - Hôtel de Crillon" },
+          { src: "/dj-flo/optimized/highlights/crillon-2.jpg", alt: "Gala Shede Festival - FLO au Crillon" },
+        ],
       },
       {
         title: "DJ set Cowboy Carter Tour",
         venue: "Hôtel Renaissance Vendôme",
         description:
           "Un set événementiel connecté à l'univers Cowboy Carter, pensé pour une audience premium et internationale.",
+        images: [
+          { src: "/dj-flo/optimized/highlights/cowboy-carter-1.jpg", alt: "DJ Set Cowboy Carter - signage événement" },
+          { src: "/dj-flo/optimized/highlights/cowboy-carter-2.jpg", alt: "DJ Set Cowboy Carter - FLO en action" },
+        ],
       },
     ],
   },
@@ -307,8 +321,9 @@ const floPressKitFr: PressKitConfig = {
       {
         id: "flo-youtube-feature",
         source: "youtube",
-        title: "FLO - Video",
-        description: "Une vidéo centrée pour découvrir FLO en action.",
+        title: "FLO x The Way Sound x MOB House",
+        description:
+          "DJ Set réalisé en collaboration avec la chaîne Youtube The Way Sound et l'hôtel 4 étoiles MOB House. Le partenariat avait pour objectif de mettre en valeur le bar de cet élégant et luxueux hôtel situé au cœur des puces de St Ouen.",
         embedUrl: "https://www.youtube.com/embed/ihHAT6KhL2E",
       },
     ],
@@ -410,11 +425,20 @@ const floPressKitFr: PressKitConfig = {
     title: "Setup\ntechnique.",
     groups: [
       {
-        title: "Setup DJ",
+        title: "Setup DJ Requis",
         items: [
-          "3 × Pioneer CDJ-3000 (linked)",
+          "2 × Pioneer CDJ-3000",
           "1 × Pioneer DJM-900NXS2",
           "Équipement professionnel équivalent accepté (CDJ-2000NXS2 / DJM-900NXS)",
+        ],
+      },
+      {
+        title: "Set up DJ Proposé (si besoin)",
+        items: [
+          "Enceintes Elokance Line Club 1000W × 2",
+          "Platines Controller Pioneer Rev-5",
+          "DJ Booth transportable",
+          "Micro Shure SM58 (sans fil)",
         ],
       },
       {
@@ -499,11 +523,9 @@ const floPressKitEn: PressKitConfig = {
     items: [
       { label: "About", href: "#about" },
       { label: "Clients", href: "#clubs" },
-      { label: "2025 highlights", href: "#highlights" },
       { label: "Gallery", href: "#gallery" },
       { label: "Panam' en Fete", href: "#vision" },
       { label: "Sound", href: "#sound" },
-      { label: "Rider", href: "#rider" },
     ],
     cta: {
       label: "Book Flo",
@@ -598,24 +620,40 @@ const floPressKitEn: PressKitConfig = {
         venue: "La Sand Fabrik, Pantin",
         description:
           "A warm live format built to support the energy of a comedy night and extend the atmosphere after the show.",
+        images: [
+          { src: "/dj-flo/optimized/highlights/comedy-1.jpg", alt: "Brigade Comedy Club - FLO behind the decks" },
+          { src: "/dj-flo/optimized/highlights/comedy-2.jpg", alt: "Brigade Comedy Club - event atmosphere" },
+        ],
       },
       {
         title: "PANAM' EN FÊTE collective launch",
         venue: "Pigalle",
         description:
           "The public launch of Flo's collective, created to gather Paris around strong and original musical concepts.",
+        images: [
+          { src: "/dj-flo/optimized/highlights/panam-launch-1.jpg", alt: "PANAM' EN FÊTE launch - Pigalle night" },
+          { src: "/dj-flo/optimized/highlights/panam-launch-2.jpg", alt: "PANAM' EN FÊTE launch - atmosphere" },
+        ],
       },
       {
         title: "Shede Festival Gala",
         venue: "Hotel de Crillon",
         description:
           "A palace-level performance with music direction tailored to an elegant and demanding event.",
+        images: [
+          { src: "/dj-flo/optimized/highlights/crillon-1.jpg", alt: "Shede Festival Gala - Hotel de Crillon" },
+          { src: "/dj-flo/optimized/highlights/crillon-2.jpg", alt: "Shede Festival Gala - FLO at Le Crillon" },
+        ],
       },
       {
         title: "Cowboy Carter Tour DJ set",
         venue: "Renaissance Vendôme Hotel",
         description:
           "An event set connected to the Cowboy Carter universe, designed for a premium international audience.",
+        images: [
+          { src: "/dj-flo/optimized/highlights/cowboy-carter-1.jpg", alt: "Cowboy Carter DJ Set - event signage" },
+          { src: "/dj-flo/optimized/highlights/cowboy-carter-2.jpg", alt: "Cowboy Carter DJ Set - FLO performing" },
+        ],
       },
     ],
   },
@@ -696,11 +734,20 @@ const floPressKitEn: PressKitConfig = {
     title: "Technical\nsetup.",
     groups: [
       {
-        title: "DJ setup",
+        title: "Required DJ Setup",
         items: [
-          "3 × Pioneer CDJ-3000 (linked)",
+          "2 × Pioneer CDJ-3000",
           "1 × Pioneer DJM-900NXS2",
           "Equivalent professional equipment accepted (CDJ-2000NXS2 / DJM-900NXS)",
+        ],
+      },
+      {
+        title: "Proposed DJ Setup (if needed)",
+        items: [
+          "Elokance Line Club 1000W speakers × 2",
+          "Pioneer Rev-5 Controller",
+          "Portable DJ Booth",
+          "Shure SM58 wireless microphone",
         ],
       },
       {
