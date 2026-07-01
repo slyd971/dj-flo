@@ -156,7 +156,7 @@ const floPressKitFr: PressKitConfig = {
         { value: "10+", label: "ans d'expérience" },
         { value: "120+", label: "prestations l'an dernier" },
         { value: "25+", label: "clients hôtels & corporate" },
-        { value: "PARIS/LONDON", label: "Présence internationale" },
+        { value: "Présence Internationale", label: "" },
       ],
       proofline: "Hip-Hop - R&B - Funk - Afrobeats - Soul - Dancehall",
     },
@@ -576,7 +576,7 @@ const floPressKitEn: PressKitConfig = {
         { value: "10+", label: "years of experience" },
         { value: "120+", label: "events last year" },
         { value: "25+", label: "hotel & corporate clients" },
-        { value: "PARIS/LONDON", label: "International presence" },
+        { value: "International Presence", label: "" },
       ],
     },
     interactive: {
