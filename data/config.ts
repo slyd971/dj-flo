@@ -269,6 +269,7 @@ export type PressKitConfig = {
   };
   footer?: {
     availabilityText?: string;
+    hideTagline?: boolean;
     navigationLabel?: string;
     socialLabel?: string;
     bookingLabel?: string;

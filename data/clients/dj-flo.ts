@@ -49,6 +49,27 @@ const gallery = [
     position: "center 34%",
   },
   {
+    src: "/dj-flo/optimized/gallery/corporate-1.jpg",
+    alt: "FLO corporate DJ set at a luxury hotel",
+    position: "center 20%",
+  },
+  {
+    src: "/dj-flo/optimized/gallery/corporate-2.jpg",
+    alt: "FLO corporate event portrait",
+    position: "center 15%",
+  },
+  {
+    src: "/dj-flo/optimized/gallery/dj-flo-wide.jpg",
+    alt: "FLO live in club lighting",
+    size: "md:col-span-2",
+    position: "center 30%",
+  },
+  {
+    src: "/dj-flo/optimized/gallery/urban-portrait-2.jpg",
+    alt: "FLO editorial portrait",
+    position: "center 15%",
+  },
+  {
     src: "/dj-flo/optimized/gallery/portrait-hero-4.jpg",
     alt: "FLO portrait",
     position: "center 30%",
@@ -57,7 +78,7 @@ const gallery = [
 ];
 
 const clientLogos = [
-  { name: "Hotel de Crillon", logo: "/dj-flo/optimized/logos/crillon-white.png" },
+  { name: "Hôtel de Crillon", logo: "/dj-flo/optimized/logos/crillon-white.png" },
   { name: "MOB House", logo: "/dj-flo/optimized/logos/mob-house.png", logoInvert: true },
   { name: "Marriott", logo: "/dj-flo/optimized/logos/marriott.png", logoInvert: true },
   { name: "Mama Shelter", logo: "/dj-flo/optimized/logos/mama-shelter.png" },
@@ -65,13 +86,15 @@ const clientLogos = [
   { name: "Clarins", logo: "/dj-flo/optimized/logos/clarins.png", logoInvert: true },
   { name: "Zaha Hadid Architects", logo: "/dj-flo/optimized/logos/zaha-hadid.webp", logoInvert: true },
   { name: "Melia Hotels", logo: "/dj-flo/optimized/logos/melia-hotels.png" },
+  { name: "Sea Containers", logo: "/dj-flo/optimized/logos/sea-containers.png" },
+  { name: "The Stratford", logo: "/dj-flo/optimized/logos/the-stratford.png" },
 ] satisfies NonNullable<PressKitConfig["brands"]>["items"];
 
 const floPressKitFr: PressKitConfig = {
   metadata: {
     title: "FLO – DJ Open Format Paris Londres | Hôtels & Corporate",
     description:
-      "Découvrez FLO, DJ open format entre Paris et Londres, spécialiste des expériences musicales premium pour hôtels, marques, rooftops et événements corporate.",
+      "Découvrez Flo, DJ open format entre Paris et Londres, spécialiste des expériences musicales premium pour hôtels, marques, rooftops et événements corporate.",
   },
   ui: {
     openMenuLabel: "Ouvrir le menu",
@@ -84,7 +107,7 @@ const floPressKitFr: PressKitConfig = {
   },
   artist: {
     name: "FLO",
-    stageLabel: "DJ - Entrepreneur Culturel",
+    stageLabel: "DJ & Entrepreneur Culturel",
     logo: {
       src: logo,
       alt: "Logo FLO",
@@ -114,9 +137,9 @@ const floPressKitFr: PressKitConfig = {
     impact: {
       eyebrow: "",
       title: "Flo",
-      accent: "DJ Open-Format Premium",
+      accent: "Vibrations Positives",
       description:
-        "Le DJ qui fait de votre événement un moment dont on se souvient.",
+        "Hip-Hop, R&B, Funk, Afrobeats, Soul & Dancehall. Flo mélange une identité sonore élégante et une énergie solaire qui fait de votre événement un moment dont on se souvient.",
       layout: "impact",
       image: {
         src: heroImage,
@@ -126,14 +149,14 @@ const floPressKitFr: PressKitConfig = {
         position: "center 27%",
       },
       ctas: [
-        { label: "Contacter FLO", href: "#contact", variant: "primary" },
+        { label: "Book Flo", href: "#contact", variant: "primary" },
         { label: "Écouter", href: "#sound", variant: "secondary" },
       ],
       stats: [
         { value: "10+", label: "ans d'expérience" },
         { value: "120+", label: "prestations l'an dernier" },
-        { value: "25+", label: "clients hotels & corporate" },
-        { value: "PARIS/LONDON", label: "rayonnement" },
+        { value: "25+", label: "clients hôtels & corporate" },
+        { value: "PARIS/LONDON", label: "Présence internationale" },
       ],
       proofline: "Hip-Hop - R&B - Funk - Afrobeats - Soul - Dancehall",
     },
@@ -161,14 +184,14 @@ const floPressKitFr: PressKitConfig = {
         { value: "AFRO", label: "Afrobeats & Dancehall" },
         { value: "NO STRESS", label: "brief to last track" },
       ],
-      proofline: "Sea Containers - Hotel de Crillon - MOB House - Marriott",
+      proofline: "Sea Containers - Hôtel de Crillon - MOB House - Marriott",
     },
     showcase: {
       eyebrow: "",
       title: "FLO",
       accent: "PARIS",
       description:
-        "Entre prestations premium et direction de concepts culturels, Flo travaille aussi bien pour des marques comme Clarins ou Vinci que pour ses propres soirées PANAM' EN FETE.",
+        "Entre prestations premium et direction de concepts culturels, Flo travaille aussi bien pour des marques comme Clarins ou Vinci que pour ses propres soirées PANAM' EN FÊTE.",
       layout: "showcase",
       image: {
         src: heroImage,
@@ -208,22 +231,22 @@ const floPressKitFr: PressKitConfig = {
   },
   clubs: {
     eyebrow: "Clients",
-    title: "Hotels, marques,\nlieux premium.",
+    title: "Hôtels, marques,\nlieux premium.",
     description:
-      "FLO excelle dans les prestations pour hôtels, bar rooftops et clients entreprises qui exigent une ambiance élégante et premium.",
+      "Flo excelle dans les prestations pour hôtels, bar rooftops et clients entreprises qui exigent une ambiance élégante et premium.",
     regions: [
       {
-        title: "Clients Hotels",
+        title: "Clients Hôtels",
         icon: "map-pin",
         items: [
-          "Hotel de Crillon",
-          "Hotels Renaissance",
+          "Hôtel de Crillon",
+          "Hôtels Renaissance",
           "MOB House",
           "MAMA Shelter",
           "AC Hotel",
           "Melia Hotels",
-          "The Stratford Hotel, Londres",
-          "One Hundred Shoreditch Hotel, Londres",
+          "The Stratford Hotel",
+          "Sea Containers",
         ],
       },
       {
@@ -236,53 +259,53 @@ const floPressKitFr: PressKitConfig = {
           "Marriott",
           "Accor",
           "Fitness Park",
-          "Zaha Hadid Architects, UK",
-          "Fuse, UK",
+          "Zaha Hadid Architects",
+          "Fuse",
         ],
       },
     ],
   },
   highlights: {
     eyebrow: "Moments forts 2025",
-    title: "Les temps forts\nqui marquent l'année.",
+    title: "Les temps forts\nqui ont marqué l'année 2025.",
     intro:
-      "Une sélection issue du press kit FLO 1.0, entre lieux premium, projets culturels et événements à forte identité musicale.",
+      "Une sélection de moments forts illustrant la diversité des projets sur lesquels travaille Flo, entre lieux premium, évènements culturels et activations pour des marques haut de gamme.",
     items: [
       {
-        title: "Soirée Comédie Club",
+        title: "La Brigade Comédy Club (mensuelle)",
         venue: "La Sand Fabrik, Pantin",
         description:
-          "Un format live et convivial, pensé pour accompagner l'énergie d'une soirée comedy club et prolonger l'ambiance après scène.",
+          "Une animation DJ conviviale, pensée pour accompagner l'énergie de cette soirée comedy club et prolonger l'ambiance après le spectacle.",
         images: [
           { src: "/dj-flo/optimized/highlights/comedy-1.jpg", alt: "Brigade Comedy Club - FLO behind the decks" },
           { src: "/dj-flo/optimized/highlights/comedy-2.jpg", alt: "Brigade Comedy Club - ambiance soirée" },
         ],
       },
       {
-        title: "Lancement du collectif PANAM' EN FÊTE",
+        title: "Soirée Hip Hop vs Afrobeats (Mai 2025)",
         venue: "Pigalle",
         description:
-          "Le point de départ public du collectif imaginé par Flo pour réunir Paris autour de concepts musicaux fédérateurs.",
+          "Le point de départ et la soirée de lancement du collectif PANAM' EN FÊTE imaginé par Flo pour réunir Paris autour de concepts musicaux fédérateurs.",
         images: [
           { src: "/dj-flo/optimized/highlights/panam-launch-1.jpg", alt: "Lancement PANAM' EN FÊTE - soirée Pigalle" },
           { src: "/dj-flo/optimized/highlights/panam-launch-2.jpg", alt: "Lancement PANAM' EN FÊTE - ambiance" },
         ],
       },
       {
-        title: "Gala du Shede Festival",
+        title: "Gala du Festival Shede (Juin 2025)",
         venue: "Hôtel de Crillon",
         description:
-          "Une prestation dans un cadre palace, avec une direction musicale adaptée à un événement élégant et exigeant.",
+          "Une prestation sur mesure pour une marque d'alcool dans le plus beau palace de Paris avec une direction musicale adaptée à cet événement élégant et exigeant.",
         images: [
           { src: "/dj-flo/optimized/highlights/crillon-1.jpg", alt: "Gala Shede Festival - Hôtel de Crillon" },
           { src: "/dj-flo/optimized/highlights/crillon-2.jpg", alt: "Gala Shede Festival - FLO au Crillon" },
         ],
       },
       {
-        title: "DJ set Cowboy Carter Tour",
+        title: "Cowboy Carter Tour (Juin 2025)",
         venue: "Hôtel Renaissance Vendôme",
         description:
-          "Un set événementiel connecté à l'univers Cowboy Carter, pensé pour une audience premium et internationale.",
+          "3 DJs sets événementiels pensés pour une audience premium et internationale de la tournée Cowboy Carter de Beyoncé à Paris, en partenariat avec le groupe Marriott Bonvoy.",
         images: [
           { src: "/dj-flo/optimized/highlights/cowboy-carter-1.jpg", alt: "DJ Set Cowboy Carter - signage événement" },
           { src: "/dj-flo/optimized/highlights/cowboy-carter-2.jpg", alt: "DJ Set Cowboy Carter - FLO en action" },
@@ -298,7 +321,7 @@ const floPressKitFr: PressKitConfig = {
       "Son profil SoundCloud illustre la diversité de ses sets : d'une mise en ambiance élégante jusqu'à un dancefloor assumé.",
     ],
     cta: {
-      label: "Ecouter sur SoundCloud",
+      label: "Écouter sur SoundCloud",
       href: soundCloudUrl,
       external: true,
     },
@@ -309,21 +332,21 @@ const floPressKitFr: PressKitConfig = {
     eyebrow: "Vidéos",
     title: "FLO en action.",
     description:
-      "Immersion dans l'univers de FLO.",
+      "Immersion dans l'univers de Flo.",
     items: [],
   },
   youtube: {
     eyebrow: "YouTube",
     title: "FLO en vidéo.",
     description:
-      "Un format vidéo pour découvrir l'énergie, l'approche et l'univers de FLO.",
+      "Un DJ set filmé au MOB House, en collaboration avec The Way Sound pour découvrir l'énergie, l'approche et l'univers de Flo.",
     items: [
       {
         id: "flo-youtube-feature",
         source: "youtube",
         title: "FLO x The Way Sound x MOB House",
         description:
-          "DJ Set réalisé en collaboration avec la chaîne Youtube The Way Sound et l'hôtel 4 étoiles MOB House. Le partenariat avait pour objectif de mettre en valeur le bar de cet élégant et luxueux hôtel situé au cœur des puces de St Ouen.",
+          "DJ Set réalisé en collaboration avec la chaîne Youtube The Way Sound et l'hôtel MOB House pour mettre en avant le bar de cet élégant et luxueux hôtel situé à St Ouen.",
         embedUrl: "https://www.youtube.com/embed/ihHAT6KhL2E",
       },
     ],
@@ -336,7 +359,7 @@ const floPressKitFr: PressKitConfig = {
   },
   vision: {
     eyebrow: "Projet",
-    title: "PANAM' EN FETE\npar FLO.",
+    title: "PANAM' EN FÊTE\npar FLO.",
     intro:
       "PANAM' EN FÊTE est le collectif événementiel fondé par Flo pour rassembler les Parisiens autour de concepts musicaux forts et originaux.",
     paragraphs: [
@@ -351,6 +374,7 @@ const floPressKitFr: PressKitConfig = {
     video: {
       src: "/dj-flo/optimized/videos/hh-vs-afrobeat.mp4",
       title: "Hip Hop vs Afrobeat",
+      poster: "/dj-flo/optimized/panam/flyer-hh-afro.jpg",
     },
     media: [
       { src: "/dj-flo/optimized/panam/flyer-lauryn.jpg", alt: "MOB Sessions Lauryn Hill flyer", label: "MOB Sessions" },
@@ -373,10 +397,10 @@ const floPressKitFr: PressKitConfig = {
     eyebrow: "Références",
     title: "Des lieux et marques\navec lesquels Flo a travaillé.",
     intro:
-      "Une sélection de lieux, hôtels et marques accompagnés par FLO pour des événements premium à Paris, Londres et au-delà.",
+      "Une sélection de lieux, hôtels et marques accompagnés par Flo pour des événements premium à Paris, Londres et au-delà.",
     supportingText:
       "Ces références partagent la même exigence : brief clair, installation fluide, lecture de salle et ambiance tenue jusqu'au dernier titre.",
-    categories: ["Hotels", "Corporate", "Luxury", "Hospitality", "Lifestyle"],
+    categories: ["Hôtels", "Corporate", "Luxury", "Hospitality", "Lifestyle"],
     itemLabel: "Client",
     hideItemText: true,
     inlineBelowClubs: true,
@@ -388,7 +412,7 @@ const floPressKitFr: PressKitConfig = {
         {
           name: "Sasha",
           role: "Fuse",
-          quote: "THANK YOU!! FLO was amazing and everyone had an incredible time.",
+          quote: "Flo était génial et nous avons passé un excellent moment. Nous avons hâte de retravailler avec lui.",
           image: "/dj-flo/optimized/feedback/sasha.jpg",
         },
         {
@@ -399,8 +423,8 @@ const floPressKitFr: PressKitConfig = {
         },
         {
           name: "Yana",
-          role: "Zaha Hadid Architects",
-          quote: "Flo était génial et nous avons passé un excellent moment. Nous avons hâte de retravailler avec lui.",
+          role: "Galerie Lefebvre",
+          quote: "Flo a totalement assuré notre soirée rap 90's ! Tout le monde a dansé jusqu'au petit matin, merci !",
           image: "/dj-flo/optimized/feedback/yana.jpg",
         },
       ],
@@ -415,8 +439,8 @@ const floPressKitFr: PressKitConfig = {
       title: "Ce que retiennent\nles clients.",
       points: [
         '"Merci pour cette superbe prestation. Nos clients et notre staff ont adoré !" - Marriott',
-        '"Flo a totalement assuré notre soirée rap 90s. Tout le monde a dansé jusqu au petit matin." - Galerie Lefebvre',
-        '"Flo était génial et nous avons passé un excellent moment. Nous avons hâte de retravailler avec lui." - Zaha Hadid Architects',
+        '"Flo a totalement assuré notre soirée rap 90\'s ! Tout le monde a dansé jusqu\'au petit matin, merci !" - Galerie Lefebvre',
+        '"Flo était génial et nous avons passé un excellent moment. Nous avons hâte de retravailler avec lui." - Fuse',
       ],
     },
   },
@@ -459,7 +483,7 @@ const floPressKitFr: PressKitConfig = {
     eyebrow: "Contact",
     title: "Parlons de votre événement.",
     description:
-      "Pour discuter d'une prestation hotel, pour un client entreprise, une soirée privée, un mariage ou un évènement culturel, contacter Flo.",
+      "Pour discuter d'une prestation pour votre hôtel, votre entreprise, un festival ou tout autre évènement (soirée privée, mariage, anniversaire, etc.), envoyez-nous votre demande.",
     methods: [
       {
         label: "Email",
@@ -487,14 +511,15 @@ const floPressKitFr: PressKitConfig = {
     eyebrow: "Galerie",
     title: "En images",
     description:
-      "Photos presse, portraits, moments corporate et images behind the decks de FLO.",
-    homepageTitle: "Visuels",
+      "Photos presse, portraits, moments corporate et images behind the decks de Flo.",
+    homepageTitle: "Galerie",
     homepageCtaLabel: "Voir toutes les photos",
     images: gallery,
   },
   footer: {
     availabilityText:
       "DJ Open Format · Paris & Londres · Événements Premium.",
+    hideTagline: true,
     navigationLabel: "Navigation",
     socialLabel: "Réseaux",
     bookingLabel: "Booking",
@@ -508,7 +533,7 @@ const floPressKitEn: PressKitConfig = {
   metadata: {
     title: "FLO – Open Format DJ Paris & London | Hotels & Events",
     description:
-      "Discover FLO, an open-format DJ between Paris and London creating premium musical experiences for hotels, brands, rooftops and corporate events.",
+      "Discover Flo, an open-format DJ between Paris and London creating premium musical experiences for hotels, brands, rooftops and corporate events.",
   },
   ui: {
     openMenuLabel: "Open menu",
@@ -524,7 +549,7 @@ const floPressKitEn: PressKitConfig = {
       { label: "About", href: "#about" },
       { label: "Clients", href: "#clubs" },
       { label: "Gallery", href: "#gallery" },
-      { label: "Panam' en Fete", href: "#vision" },
+      { label: "Panam' en Fête", href: "#vision" },
       { label: "Sound", href: "#sound" },
     ],
     cta: {
@@ -535,23 +560,23 @@ const floPressKitEn: PressKitConfig = {
   },
   artist: {
     ...floPressKitFr.artist,
-    stageLabel: "DJ - Cultural Entrepreneur",
+    stageLabel: "DJ & Cultural Entrepreneur",
   },
   heroVariants: {
     impact: {
       ...floPressKitFr.heroVariants.impact,
-      accent: "Premium Open-Format DJ",
+      accent: "Positive Vibrations",
       description:
-        "The DJ that makes your event unforgettable.",
+        "Hip-Hop, R&B, Funk, Afrobeats, Soul & Dancehall. Flo blends an elegant sound identity with a sun-drenched energy that makes your event a moment to remember.",
       ctas: [
-        { label: "Book FLO", href: "#contact", variant: "primary" },
+        { label: "Contact FLO", href: "#contact", variant: "primary" },
         { label: "Listen", href: "#sound", variant: "secondary" },
       ],
       stats: [
         { value: "10+", label: "years of experience" },
         { value: "120+", label: "events last year" },
         { value: "25+", label: "hotel & corporate clients" },
-        { value: "PARIS/LONDON", label: "presence" },
+        { value: "PARIS/LONDON", label: "International presence" },
       ],
     },
     interactive: {
@@ -566,10 +591,10 @@ const floPressKitEn: PressKitConfig = {
     showcase: {
       ...floPressKitFr.heroVariants.showcase,
       description:
-        "Between premium performances and cultural concepts, Flo works with brands like Clarins and Vinci as well as his own PANAM' EN FETE events.",
+        "Between premium performances and cultural concepts, Flo works with brands like Clarins and Vinci as well as his own PANAM' EN FÊTE events.",
       ctas: [
         { label: "Clients", href: "#clubs", variant: "primary" },
-        { label: "Panam' en Fete", href: "#vision", variant: "secondary" },
+        { label: "Panam' en Fête", href: "#vision", variant: "secondary" },
       ],
       stats: [
         { value: "MOB", label: "monthly sessions" },
@@ -590,7 +615,7 @@ const floPressKitEn: PressKitConfig = {
       "With over ten years of experience across the business and events world, Flo is more than just a DJ, he is your partner in creating unique musical experiences for your venue or your clients.",
       "He is used to performing at the most demanding events, from the buzzing rooftop of Sea Containers in London to the five-star palace of Hotel de Crillon in Paris, as well as corporate events for brands such as Sodexo, Vinci, Asphalte and Clarins.",
       "His musical world moves between Hip Hop, Soul, R&B and Afrobeats, but what truly sets him apart is his ability to read a room and adapt his energy to every atmosphere. Professional, warm and attentive, he takes care of the entire sonic identity of your event, from the initial brief to the very last track.",
-      "Beyond his performances, Flo is the founder of the collective PANAM' EN FETE, whose mission is to bring Parisians together around original and compelling musical concepts, including the MOB Sessions, a monthly gathering of over 200 people at the 4-stars MOB House hotel in Saint-Ouen.",
+      "Beyond his performances, Flo is the founder of the collective PANAM' EN FÊTE, whose mission is to bring Parisians together around original and compelling musical concepts, including the MOB Sessions, a monthly gathering of over 200 people at the 4-stars MOB House hotel in Saint-Ouen.",
     ],
   },
   clubs: {
@@ -611,45 +636,45 @@ const floPressKitEn: PressKitConfig = {
   },
   highlights: {
     eyebrow: "2025 highlights",
-    title: "Key moments\nfrom the year.",
+    title: "Key moments\nthat shaped 2025.",
     intro:
-      "A selection from the FLO 1.0 press kit, spanning premium venues, cultural projects and music-led events.",
+      "A selection of highlights showing the range of projects Flo works on, between premium venues, cultural events and activations for high-end brands.",
     items: [
       {
-        title: "Comedy Club night",
+        title: "La Brigade Comédy Club (monthly)",
         venue: "La Sand Fabrik, Pantin",
         description:
-          "A warm live format built to support the energy of a comedy night and extend the atmosphere after the show.",
+          "A friendly DJ set designed to carry the energy of this comedy club night and extend the atmosphere after the show.",
         images: [
           { src: "/dj-flo/optimized/highlights/comedy-1.jpg", alt: "Brigade Comedy Club - FLO behind the decks" },
           { src: "/dj-flo/optimized/highlights/comedy-2.jpg", alt: "Brigade Comedy Club - event atmosphere" },
         ],
       },
       {
-        title: "PANAM' EN FÊTE collective launch",
+        title: "Hip Hop vs Afrobeats night (May 2025)",
         venue: "Pigalle",
         description:
-          "The public launch of Flo's collective, created to gather Paris around strong and original musical concepts.",
+          "The starting point and launch night of the PANAM' EN FÊTE collective, created by Flo to bring Paris together around unifying musical concepts.",
         images: [
           { src: "/dj-flo/optimized/highlights/panam-launch-1.jpg", alt: "PANAM' EN FÊTE launch - Pigalle night" },
           { src: "/dj-flo/optimized/highlights/panam-launch-2.jpg", alt: "PANAM' EN FÊTE launch - atmosphere" },
         ],
       },
       {
-        title: "Shede Festival Gala",
-        venue: "Hotel de Crillon",
+        title: "Shede Festival Gala (June 2025)",
+        venue: "Hôtel de Crillon",
         description:
-          "A palace-level performance with music direction tailored to an elegant and demanding event.",
+          "A bespoke performance for a spirits brand in the finest palace hotel in Paris, with music direction tailored to an elegant and demanding event.",
         images: [
           { src: "/dj-flo/optimized/highlights/crillon-1.jpg", alt: "Shede Festival Gala - Hotel de Crillon" },
           { src: "/dj-flo/optimized/highlights/crillon-2.jpg", alt: "Shede Festival Gala - FLO at Le Crillon" },
         ],
       },
       {
-        title: "Cowboy Carter Tour DJ set",
+        title: "Cowboy Carter Tour (June 2025)",
         venue: "Renaissance Vendôme Hotel",
         description:
-          "An event set connected to the Cowboy Carter universe, designed for a premium international audience.",
+          "3 event DJ sets designed for a premium international audience of Beyoncé's Cowboy Carter Tour in Paris, in partnership with Marriott Bonvoy.",
         images: [
           { src: "/dj-flo/optimized/highlights/cowboy-carter-1.jpg", alt: "Cowboy Carter DJ Set - event signage" },
           { src: "/dj-flo/optimized/highlights/cowboy-carter-2.jpg", alt: "Cowboy Carter DJ Set - FLO performing" },
@@ -675,7 +700,29 @@ const floPressKitEn: PressKitConfig = {
     ...floPressKitFr.videos,
     title: "FLO in action.",
     description:
-      "Step into FLO's world.",
+      "Step into Flo's world.",
+  },
+  youtube: {
+    eyebrow: "YouTube",
+    title: "FLO on video.",
+    description:
+      "A DJ set filmed at MOB House, in collaboration with The Way Sound, to discover Flo's energy, approach and universe.",
+    items: [
+      {
+        id: "flo-youtube-feature",
+        source: "youtube",
+        title: "FLO x The Way Sound x MOB House",
+        description:
+          "DJ Set produced in collaboration with the YouTube channel The Way Sound and MOB House hotel, to showcase the bar of this elegant and luxurious hotel located in St Ouen.",
+        embedUrl: "https://www.youtube.com/embed/ihHAT6KhL2E",
+      },
+    ],
+    cta: {
+      label: "Watch on YouTube",
+      href: "https://www.youtube.com/watch?si=RQ8GK5ayKVPSYS6m&v=ihHAT6KhL2E&feature=youtu.be",
+      external: true,
+      variant: "secondary",
+    },
   },
   vision: {
     ...floPressKitFr.vision,
@@ -706,13 +753,33 @@ const floPressKitEn: PressKitConfig = {
     ...floPressKitFr.brands,
     title: "Venues and brands\nFlo has worked with.",
     intro:
-      "A selection of venues, hotels and brands FLO has supported for premium events in Paris, London and beyond.",
+      "A selection of venues, hotels and brands Flo has supported for premium events in Paris, London and beyond.",
     supportingText:
       "These references share the same standard: clear brief, smooth setup, room reading and a vibe held until the final track.",
     feedback: {
       ...floPressKitFr.brands.feedback!,
       eyebrow: "Client feedback",
       title: "What clients\nsay.",
+      items: [
+        {
+          name: "Sasha",
+          role: "Fuse",
+          quote: "Flo was amazing, we had a great time. We can't wait to work with him again.",
+          image: "/dj-flo/optimized/feedback/sasha.jpg",
+        },
+        {
+          name: "Clothilde",
+          role: "Marriott",
+          quote: "Thank you for this incredible performance. Our clients and staff loved it!",
+          image: "/dj-flo/optimized/feedback/clothilde.jpg",
+        },
+        {
+          name: "Yana",
+          role: "Galerie Lefebvre",
+          quote: "Flo completely nailed our 90's rap night! Everyone danced until the early hours, thank you!",
+          image: "/dj-flo/optimized/feedback/yana.jpg",
+        },
+      ],
       cta: {
         label: "Book FLO",
         href: "#contact",
@@ -723,9 +790,9 @@ const floPressKitEn: PressKitConfig = {
       eyebrow: "Feedback",
       title: "What clients\nremember.",
       points: [
-        '"THANK YOU!! FLO was amazing and everyone had an incredible time." - Fuse',
-        '"Thanks for this amazing set. Our clients and staff loved it!" - Marriott',
-        '"Flo was great. We thoroughly enjoyed it and look forward to working with you again." - Zaha Hadid Architects',
+        '"Thank you for this incredible performance. Our clients and staff loved it!" - Marriott',
+        '"Flo completely nailed our 90\'s rap night! Everyone danced until the early hours, thank you!" - Galerie Lefebvre',
+        '"Flo was amazing, we had a great time. We can\'t wait to work with him again." - Fuse',
       ],
     },
   },
@@ -768,20 +835,21 @@ const floPressKitEn: PressKitConfig = {
     ...floPressKitFr.contact,
     title: "Let's talk about your event.",
     description:
-      "To discuss a hotel performance, corporate event, private party, wedding or cultural event, get in touch with Flo.",
+      "To discuss a performance for your hotel, your company, a festival or any other event (private party, wedding, birthday, etc.), send us your request.",
   },
   gallery: {
     ...floPressKitFr.gallery,
     eyebrow: "Gallery",
     title: "Gallery",
     description:
-      "Press photos, portraits, corporate moments and behind-the-decks visuals of FLO.",
-    homepageTitle: "Visuals",
+      "Press photos, portraits, corporate moments and behind-the-decks visuals of Flo.",
+    homepageTitle: "Gallery",
     homepageCtaLabel: "See all pictures",
   },
   footer: {
     availabilityText:
       "Open Format DJ - Paris & London - Premium Events",
+    hideTagline: true,
     navigationLabel: "Navigation",
     socialLabel: "Socials",
     bookingLabel: "Booking",
@@ -827,7 +895,7 @@ export const djFloEnClient: ClientConfig = {
     {
       title: "Cultural concepts",
       description:
-        "Event concepts and community-driven formats through PANAM' EN FETE and MOB Sessions.",
+        "Event concepts and community-driven formats through PANAM' EN FÊTE and MOB Sessions.",
     },
   ],
   testimonials: [],
@@ -881,7 +949,7 @@ export const djFloClient: ClientConfig = {
     {
       title: "Concepts culturels",
       description:
-        "Création de formats événementiels et communautaires avec PANAM' EN FETE et les MOB Sessions.",
+        "Création de formats événementiels et communautaires avec PANAM' EN FÊTE et les MOB Sessions.",
     },
   ],
   seo: {
