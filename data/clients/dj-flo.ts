@@ -70,6 +70,36 @@ const gallery = [
     position: "center 15%",
   },
   {
+    src: "/dj-flo/optimized/gallery/decks-4.jpg",
+    alt: "FLO behind the decks, rock on",
+    position: "center 30%",
+  },
+  {
+    src: "/dj-flo/optimized/gallery/decks-5.jpg",
+    alt: "FLO laughing behind the decks",
+    position: "center 25%",
+  },
+  {
+    src: "/dj-flo/optimized/gallery/decks-6.jpg",
+    alt: "FLO behind the decks at a private event",
+    position: "center 25%",
+  },
+  {
+    src: "/dj-flo/optimized/gallery/urban-portrait-3.jpg",
+    alt: "FLO urban portrait by the Seine",
+    position: "center 20%",
+  },
+  {
+    src: "/dj-flo/optimized/gallery/urban-portrait-4.jpg",
+    alt: "FLO editorial portrait, brick wall",
+    position: "center 20%",
+  },
+  {
+    src: "/dj-flo/optimized/gallery/urban-portrait-5.jpg",
+    alt: "FLO urban portrait, street art wall",
+    position: "center 20%",
+  },
+  {
     src: "/dj-flo/optimized/gallery/portrait-hero-4.jpg",
     alt: "FLO portrait",
     position: "center 30%",

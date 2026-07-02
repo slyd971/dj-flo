@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/press-kit/Header";
 import { Footer } from "@/components/press-kit/Footer";
 import { DevControlPanel } from "@/components/press-kit/DevControlPanel";
+import { PanamVideoGrid } from "@/components/press-kit/PanamVideoGrid";
 import { getFontPreset, getFontStyle } from "@/data/font-presets";
 import {
   createPressKitEntry,
@@ -51,6 +52,36 @@ const photos = [
   { src: "/dj-flo/optimized/panam/mob-3.jpg", alt: "MOB Sessions live atmosphere" },
   { src: "/dj-flo/optimized/panam/mob-4.jpg", alt: "MOB Sessions dancefloor" },
   { src: "/dj-flo/optimized/panam/mob-5.jpg", alt: "MOB Sessions community event" },
+  { src: "/dj-flo/optimized/panam/mob-6.jpg", alt: "FLO behind the decks at MOB Sessions" },
+  { src: "/dj-flo/optimized/panam/mob-7.jpg", alt: "MOB Sessions bar moment" },
+  { src: "/dj-flo/optimized/panam/mob-8.jpg", alt: "MOB Sessions crowd with FLO" },
+  { src: "/dj-flo/optimized/panam/mob-9.jpg", alt: "MOB Sessions friends dancing" },
+  { src: "/dj-flo/optimized/panam/mob-10.jpg", alt: "MOB Sessions hands up on the dancefloor" },
+  { src: "/dj-flo/optimized/panam/mob-11.jpg", alt: "MOB Sessions dancing moment" },
+  { src: "/dj-flo/optimized/panam/mob-12.jpg", alt: "MOB Sessions drinks at the bar" },
+  { src: "/dj-flo/optimized/panam/mob-13.jpg", alt: "MOB Sessions community celebration" },
+  { src: "/dj-flo/optimized/panam/mob-14.jpg", alt: "MOB Sessions dancefloor energy" },
+  { src: "/dj-flo/optimized/panam/mob-15.jpg", alt: "MOB Sessions night out" },
+  { src: "/dj-flo/optimized/panam/mob-16.jpg", alt: "MOB Sessions guests portrait" },
+];
+
+const videos = [
+  {
+    src: "/dj-flo/optimized/videos/hh-vs-afrobeat.mp4",
+    poster: "/dj-flo/optimized/panam/flyer-hh-afro.jpg",
+  },
+  {
+    src: "/dj-flo/optimized/videos/reel-mob-1.mp4",
+    poster: "/dj-flo/optimized/panam/mob-1.jpg",
+  },
+  {
+    src: "/dj-flo/optimized/panam/block-party-fdlm-2026.mp4",
+    poster: "/dj-flo/optimized/panam/poster-block-party-fdlm-2026.jpg",
+  },
+  {
+    src: "/dj-flo/optimized/panam/hip-hop-vs-afrobeats-2.mp4",
+    poster: "/dj-flo/optimized/panam/poster-hip-hop-vs-afrobeats-2.jpg",
+  },
 ];
 
 function getLocalizedClient(client: ClientConfig, locale?: string) {
@@ -222,24 +253,7 @@ export async function PanamPage({ locale, searchParams }: PanamPageProps) {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <video
-              className="aspect-[9/16] w-full rounded-2xl border border-white/10 bg-black object-cover"
-              src="/dj-flo/optimized/videos/hh-vs-afrobeat.mp4"
-              poster="/dj-flo/optimized/panam/flyer-hh-afro.jpg"
-              controls
-              preload="metadata"
-              playsInline
-            />
-            <video
-              className="aspect-[9/16] w-full rounded-2xl border border-white/10 bg-black object-cover"
-              src="/dj-flo/optimized/videos/reel-mob-1.mp4"
-              poster="/dj-flo/optimized/panam/mob-1.jpg"
-              controls
-              preload="metadata"
-              playsInline
-            />
-          </div>
+          <PanamVideoGrid videos={videos} />
         </div>
       </section>
 
