@@ -186,7 +186,7 @@ const floPressKitFr: PressKitConfig = {
         { value: "10+", label: "ans d'expérience" },
         { value: "120+", label: "prestations l'an dernier" },
         { value: "25+", label: "clients hôtels & corporate" },
-        { value: "Présence Internationale", label: "" },
+        { value: "Présence Internationale", label: "Paris, Londres & plus" },
       ],
       proofline: "Hip-Hop - R&B - Funk - Afrobeats - Soul - Dancehall",
     },
@@ -404,7 +404,7 @@ const floPressKitFr: PressKitConfig = {
     video: {
       src: "/dj-flo/optimized/videos/hh-vs-afrobeat.mp4",
       title: "Hip Hop vs Afrobeat",
-      poster: "/dj-flo/optimized/panam/flyer-hh-afro.jpg",
+      poster: "/dj-flo/optimized/videos/cover-home-panameenfete.png",
     },
     media: [
       { src: "/dj-flo/optimized/panam/flyer-lauryn.jpg", alt: "MOB Sessions Lauryn Hill flyer", label: "MOB Sessions" },
