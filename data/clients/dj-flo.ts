@@ -13,7 +13,7 @@ const spotifyEmbedUrl =
   "https://open.spotify.com/embed/playlist/478ZoJDjn5MPFv0yr78WWq?utm_source=generator";
 const bookingEmail = "contact@djfloparis.com";
 const whatsappHref = "https://wa.me/33761672378";
-const heroImage = "/dj-flo/optimized/hero.jpg";
+const heroImage = "/dj-flo/optimized/gallery/decks-2.jpg";
 const logo = "/dj-flo/optimized/djflo-logo.svg";
 
 const gallery = [
@@ -176,7 +176,7 @@ const floPressKitFr: PressKitConfig = {
         alt: "FLO portrait hero",
         badge: "",
         caption: "",
-        position: "center 27%",
+        position: "center 36%",
       },
       ctas: [
         { label: "Book Flo", href: "#contact", variant: "primary" },
@@ -202,7 +202,7 @@ const floPressKitFr: PressKitConfig = {
         alt: "FLO live visual",
         badge: "",
         caption: "",
-        position: "center 27%",
+        position: "center 36%",
       },
       ctas: [
         { label: "YouTube", href: "#youtube", variant: "primary" },
@@ -228,7 +228,7 @@ const floPressKitFr: PressKitConfig = {
         alt: "FLO press photo",
         badge: "",
         caption: "",
-        position: "center 27%",
+        position: "center 36%",
       },
       ctas: [
         { label: "Clients", href: "#clubs", variant: "primary" },
@@ -597,7 +597,7 @@ const floPressKitEn: PressKitConfig = {
       ...floPressKitFr.heroVariants.impact,
       accent: "Positive Vibrations",
       description:
-        "Hip-Hop, R&B, Funk, Afrobeats, Soul & Dancehall. Flo blends an elegant sound identity with a sun-drenched energy that makes your event a moment to remember.",
+        "Hip-Hop, R&B, Funk, Afrobeats, Soul & Dancehall. Flo blends an elegant sound identity with a vibrant energy that makes your event a moment to remember.",
       ctas: [
         { label: "Contact FLO", href: "#contact", variant: "primary" },
         { label: "Listen", href: "#sound", variant: "secondary" },
@@ -606,7 +606,7 @@ const floPressKitEn: PressKitConfig = {
         { value: "10+", label: "years of experience" },
         { value: "120+", label: "events last year" },
         { value: "25+", label: "hotel & corporate clients" },
-        { value: "International Presence", label: "" },
+        { value: "International Presence", label: "Paris, London, & more" },
       ],
     },
     interactive: {
