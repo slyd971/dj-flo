@@ -13,7 +13,7 @@ const spotifyEmbedUrl =
   "https://open.spotify.com/embed/playlist/478ZoJDjn5MPFv0yr78WWq?utm_source=generator";
 const bookingEmail = "contact@djfloparis.com";
 const whatsappHref = "https://wa.me/33761672378";
-const heroImage = "/dj-flo/optimized/gallery/decks-2.jpg";
+const heroImage = "/dj-flo/optimized/gallery/decks-4.jpg";
 const logo = "/dj-flo/optimized/djflo-logo.svg";
 
 const gallery = [
@@ -176,7 +176,7 @@ const floPressKitFr: PressKitConfig = {
         alt: "FLO portrait hero",
         badge: "",
         caption: "",
-        position: "center 36%",
+        position: "center 30%",
       },
       ctas: [
         { label: "Book Flo", href: "#contact", variant: "primary" },
@@ -202,7 +202,7 @@ const floPressKitFr: PressKitConfig = {
         alt: "FLO live visual",
         badge: "",
         caption: "",
-        position: "center 36%",
+        position: "center 30%",
       },
       ctas: [
         { label: "YouTube", href: "#youtube", variant: "primary" },
@@ -228,7 +228,7 @@ const floPressKitFr: PressKitConfig = {
         alt: "FLO press photo",
         badge: "",
         caption: "",
-        position: "center 36%",
+        position: "center 30%",
       },
       ctas: [
         { label: "Clients", href: "#clubs", variant: "primary" },
