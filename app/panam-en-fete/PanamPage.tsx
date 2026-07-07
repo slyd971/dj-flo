@@ -68,7 +68,7 @@ const photos = [
 const videos = [
   {
     src: "/dj-flo/optimized/videos/hh-vs-afrobeat.mp4",
-    poster: "/dj-flo/optimized/panam/flyer-hh-afro.jpg",
+    poster: "/dj-flo/optimized/videos/cover-home-panameenfete.png",
   },
   {
     src: "/dj-flo/optimized/videos/reel-mob-1.mp4",
