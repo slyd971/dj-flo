@@ -55,7 +55,7 @@ export function Footer({
             {client.name}
           </Link>
           <p className="mt-3 max-w-md text-sm leading-6 text-white/58 sm:max-w-none">
-            {client.tagline}. {availabilityText}
+            {footerLabels?.hideTagline ? availabilityText : `${client.tagline}. ${availabilityText}`}
           </p>
           <div className="mt-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/35">
             {client.city} · {client.country}
@@ -68,13 +68,13 @@ export function Footer({
           </div>
           <div className="mt-3 grid gap-2 text-sm text-white/68">
             {navigation.items.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                href={item.href.startsWith("#") ? `${homeHref}${item.href}` : item.href}
                 className="transition hover:text-white"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <Link href={galleryHref} className="transition hover:text-white">
               {footerLabels?.fullGalleryLabel ?? "Galerie complète"}

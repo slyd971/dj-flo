@@ -164,7 +164,7 @@ function getHeroStatCardClass(value: string) {
 
 function getHeroAccentSizeClass(accent: string) {
   const len = accent.trim().length;
-  if (len >= 16) return "text-[1.05rem] sm:text-[1.35rem] md:text-[1.95rem] xl:text-[2.45rem]";
+  if (len >= 21) return "text-[1.05rem] sm:text-[1.35rem] md:text-[1.95rem] xl:text-[2.45rem]";
   return "";
 }
 

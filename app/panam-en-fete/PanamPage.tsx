@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/press-kit/Header";
 import { Footer } from "@/components/press-kit/Footer";
 import { DevControlPanel } from "@/components/press-kit/DevControlPanel";
+import { PanamVideoGrid } from "@/components/press-kit/PanamVideoGrid";
 import { getFontPreset, getFontStyle } from "@/data/font-presets";
 import {
   createPressKitEntry,
@@ -51,6 +52,36 @@ const photos = [
   { src: "/dj-flo/optimized/panam/mob-3.jpg", alt: "MOB Sessions live atmosphere" },
   { src: "/dj-flo/optimized/panam/mob-4.jpg", alt: "MOB Sessions dancefloor" },
   { src: "/dj-flo/optimized/panam/mob-5.jpg", alt: "MOB Sessions community event" },
+  { src: "/dj-flo/optimized/panam/mob-6.jpg", alt: "FLO behind the decks at MOB Sessions" },
+  { src: "/dj-flo/optimized/panam/mob-7.jpg", alt: "MOB Sessions bar moment" },
+  { src: "/dj-flo/optimized/panam/mob-8.jpg", alt: "MOB Sessions crowd with FLO" },
+  { src: "/dj-flo/optimized/panam/mob-9.jpg", alt: "MOB Sessions friends dancing" },
+  { src: "/dj-flo/optimized/panam/mob-10.jpg", alt: "MOB Sessions hands up on the dancefloor" },
+  { src: "/dj-flo/optimized/panam/mob-11.jpg", alt: "MOB Sessions dancing moment" },
+  { src: "/dj-flo/optimized/panam/mob-12.jpg", alt: "MOB Sessions drinks at the bar" },
+  { src: "/dj-flo/optimized/panam/mob-13.jpg", alt: "MOB Sessions community celebration" },
+  { src: "/dj-flo/optimized/panam/mob-14.jpg", alt: "MOB Sessions dancefloor energy" },
+  { src: "/dj-flo/optimized/panam/mob-15.jpg", alt: "MOB Sessions night out" },
+  { src: "/dj-flo/optimized/panam/mob-16.jpg", alt: "MOB Sessions guests portrait" },
+];
+
+const videos = [
+  {
+    src: "/dj-flo/optimized/videos/hh-vs-afrobeat.mp4",
+    poster: "/dj-flo/optimized/videos/cover-home-panameenfete.png",
+  },
+  {
+    src: "/dj-flo/optimized/videos/reel-mob-1.mp4",
+    poster: "/dj-flo/optimized/panam/mob-1.jpg",
+  },
+  {
+    src: "/dj-flo/optimized/panam/block-party-fdlm-2026.mp4",
+    poster: "/dj-flo/optimized/panam/poster-block-party-fdlm-2026.jpg",
+  },
+  {
+    src: "/dj-flo/optimized/panam/hip-hop-vs-afrobeats-2.mp4",
+    poster: "/dj-flo/optimized/panam/poster-hip-hop-vs-afrobeats-2.jpg",
+  },
 ];
 
 function getLocalizedClient(client: ClientConfig, locale?: string) {
@@ -91,17 +122,17 @@ export async function generatePanamMetadata({
   const { client } = await resolvePanamClient(locale, searchParams);
   const isEnglish = locale?.toLowerCase() === "en" || client.slug.endsWith("-en");
   const title = isEnglish
-    ? "PANAM' EN FETE by FLO | Event collective"
-    : "PANAM' EN FETE par FLO | Collectif événementiel";
+    ? "PANAM' EN FÊTE by FLO | Event collective"
+    : "PANAM' EN FÊTE par FLO | Collectif événementiel";
   const description = isEnglish
-    ? "Explore PANAM' EN FETE, FLO's Paris event collective: MOB Sessions, flyers, videos and community moments."
-    : "Explorez PANAM' EN FETE, le collectif événementiel parisien de FLO: MOB Sessions, flyers, vidéos et moments de communauté.";
+    ? "Explore PANAM' EN FÊTE, FLO's Paris event collective: MOB Sessions, flyers, videos and community moments."
+    : "Explorez PANAM' EN FÊTE, le collectif événementiel parisien de FLO: MOB Sessions, flyers, vidéos et moments de communauté.";
 
   return buildClientMetadata(client, isEnglish ? "/en/panam-en-fete" : "/panam-en-fete", {
     title,
     description,
     image: "/dj-flo/optimized/panam/flyer-hh-afro.jpg",
-    imageAlt: "PANAM' EN FETE by FLO",
+    imageAlt: "PANAM' EN FÊTE by FLO",
     keywords: [
       "PANAM EN FETE",
       "FLO",
@@ -130,11 +161,11 @@ export async function PanamPage({ locale, searchParams }: PanamPageProps) {
   const copy = isEnglish
     ? {
         eyebrow: "FLO project",
-        title: "PANAM' EN FETE",
+        title: "PANAM' EN FÊTE",
         intro:
           "A Paris event collective built to bring people together around strong musical concepts and accessible, carefully curated nights.",
         paragraphs: [
-          "Founded by Flo, PANAM' EN FETE has gathered more than 1,500 people across around ten events, combining artistic standards with a welcoming community spirit.",
+          "Founded by Flo, PANAM' EN FÊTE has gathered more than 1,500 people across around ten events, combining artistic standards with a welcoming community spirit.",
           "Its latest format, MOB Sessions, takes place monthly at MOB House in Saint-Ouen. Each edition pays tribute to an iconic artist before opening into a dancefloor moment designed for creative communities.",
         ],
         stats: [
@@ -148,11 +179,11 @@ export async function PanamPage({ locale, searchParams }: PanamPageProps) {
       }
     : {
         eyebrow: "Projet FLO",
-        title: "PANAM' EN FETE",
+        title: "PANAM' EN FÊTE",
         intro:
           "Un collectif événementiel parisien pensé pour rassembler autour de concepts musicaux forts, accessibles et soignés.",
         paragraphs: [
-          "Fondé par Flo, PANAM' EN FETE a déjà réuni plus de 1 500 personnes à travers une dizaine d'événements mêlant exigence artistique et esprit communautaire.",
+          "Fondé par Flo, PANAM' EN FÊTE a déjà réuni plus de 1 500 personnes à travers une dizaine d'événements mêlant exigence artistique et esprit communautaire.",
           "Son dernier format, les MOB Sessions, se tient chaque mois au MOB House à Saint-Ouen. Chaque édition rend hommage à un artiste iconique avant de laisser place à une soirée dansante pensée pour les communautés créatives.",
         ],
         stats: [
@@ -222,22 +253,7 @@ export async function PanamPage({ locale, searchParams }: PanamPageProps) {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <video
-              className="aspect-[9/16] w-full rounded-2xl border border-white/10 bg-black object-cover"
-              src="/dj-flo/optimized/videos/hh-vs-afrobeat.mp4"
-              controls
-              preload="metadata"
-              playsInline
-            />
-            <video
-              className="aspect-[9/16] w-full rounded-2xl border border-white/10 bg-black object-cover"
-              src="/dj-flo/optimized/videos/reel-mob-1.mp4"
-              controls
-              preload="metadata"
-              playsInline
-            />
-          </div>
+          <PanamVideoGrid videos={videos} />
         </div>
       </section>
 

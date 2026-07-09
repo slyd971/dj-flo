@@ -33,6 +33,8 @@ export function Header({ artist, navigation, ui, homeHref = "/" }: HeaderProps) 
     .filter(Boolean);
   const fallbackLogoPrimary = fallbackLogoParts[0] ?? artist.name;
   const fallbackLogoSecondary = fallbackLogoParts.slice(1).join(" ");
+  const resolveNavHref = (href: string) =>
+    href.startsWith("#") ? `${homeHref}${href}` : href;
 
   useEffect(() => {
     lastScrollY.current = window.scrollY;
@@ -65,22 +67,22 @@ export function Header({ artist, navigation, ui, homeHref = "/" }: HeaderProps) 
     <div className="absolute left-0 right-0 top-full z-[100] border-t border-white/10 bg-black lg:hidden">
       <nav className="flex flex-col items-end gap-2.5 px-4 py-3 text-right">
         {navigation.items.map((item) => (
-          <a
+          <Link
             key={item.href}
-            href={item.href}
+            href={resolveNavHref(item.href)}
             onClick={() => setMenuOpen(false)}
             className="text-sm font-bold uppercase tracking-[0.05em] text-white transition hover:text-[var(--pk-accent)]"
           >
             {item.label}
-          </a>
+          </Link>
         ))}
-        <a
-          href={navigation.cta.href}
+        <Link
+          href={resolveNavHref(navigation.cta.href)}
           onClick={() => setMenuOpen(false)}
           className="text-sm font-bold uppercase tracking-[0.05em] text-white transition hover:text-[var(--pk-accent)]"
         >
           {navigation.cta.label}
-        </a>
+        </Link>
       </nav>
     </div>
   );
@@ -152,14 +154,14 @@ export function Header({ artist, navigation, ui, homeHref = "/" }: HeaderProps) 
         <div className="flex items-center gap-3 md:gap-6 xl:gap-8">
           <nav className="hidden items-center gap-7 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/76 lg:flex xl:gap-8">
             {navigation.items.map((item) => (
-              <a key={item.href} href={item.href} className="transition hover:text-white">
+              <Link key={item.href} href={resolveNavHref(item.href)} className="transition hover:text-white">
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
-          <a
-            href={navigation.cta.href}
+          <Link
+            href={resolveNavHref(navigation.cta.href)}
             className={`inline-flex rounded-full bg-[var(--pk-accent)] font-semibold uppercase text-white transition-all duration-300 hover:bg-[var(--pk-accent-strong)] lg:hidden ${
               isHeaderCompact
                 ? "px-3 py-2 text-[9px] tracking-[0.16em]"
@@ -167,10 +169,10 @@ export function Header({ artist, navigation, ui, homeHref = "/" }: HeaderProps) 
             }`}
           >
             {navigation.cta.label}
-          </a>
+          </Link>
 
-          <a
-            href={navigation.cta.href}
+          <Link
+            href={resolveNavHref(navigation.cta.href)}
             className={`hidden rounded-full border border-[rgb(var(--pk-accent-rgb)/0.28)] bg-[var(--pk-accent)] font-semibold uppercase text-white shadow-[0_14px_36px_rgb(var(--pk-accent-rgb)/0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--pk-accent-strong)] lg:inline-flex ${
               isHeaderCompact
                 ? "px-4.5 py-2 text-[10px] tracking-[0.18em]"
@@ -178,7 +180,7 @@ export function Header({ artist, navigation, ui, homeHref = "/" }: HeaderProps) 
             }`}
           >
             {navigation.cta.label}
-          </a>
+          </Link>
 
           <button
             type="button"
