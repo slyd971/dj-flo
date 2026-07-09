@@ -792,6 +792,7 @@ const floPressKitEn: PressKitConfig = {
 
 export const djFloEnClient: ClientConfig = {
   slug: "dj-flo-en",
+  domain: "djfloparis.com",
   vercelSubdomain: "dj-flo-en.vercel.app",
   name: "FLO",
   tagline: "Open-format DJ - Paris and London - premium events",
@@ -845,7 +846,7 @@ export const djFloEnClient: ClientConfig = {
       "private event DJ Paris",
       "MOB Sessions Paris",
     ],
-    canonical: "https://dj-flo.vercel.app/",
+    canonical: "https://djfloparis.com/",
     ogImage: heroImage,
   },
   defaultTheme: "dj-flo",
