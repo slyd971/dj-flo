@@ -22,3 +22,4 @@ public/logos
 # dj-flo : exclure raw assets, garder seulement optimized/
 public/dj-flo/*
 !public/dj-flo/optimized
+!public/dj-flo/optimized/**

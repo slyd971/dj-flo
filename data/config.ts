@@ -98,6 +98,7 @@ export type PressKitConfig = {
     logo: {
       src: string;
       alt: string;
+      scale?: number;
     };
   };
   navigation: {
@@ -152,6 +153,20 @@ export type PressKitConfig = {
       title: string;
       icon: "map-pin" | "globe";
       items: string[];
+    }>;
+  };
+  highlights?: {
+    eyebrow: string;
+    title: string;
+    intro?: string;
+    items: Array<{
+      title: string;
+      venue: string;
+      description?: string;
+      images?: Array<{
+        src: string;
+        alt: string;
+      }>;
     }>;
   };
   sound: {
@@ -213,6 +228,17 @@ export type PressKitConfig = {
     hideItemFrame?: boolean;
     inlineBelowClubs?: boolean;
     items: Array<{ name: string; logo?: string; logoInvert?: boolean; href?: string } | string>;
+    feedback?: {
+      eyebrow: string;
+      title: string;
+      items: Array<{
+        name: string;
+        role: string;
+        quote: string;
+        image: string;
+      }>;
+      cta?: CtaLink;
+    };
     fit?: {
       eyebrow: string;
       title: string;

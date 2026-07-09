@@ -91,20 +91,20 @@ export async function generatePanamMetadata({
   const { client } = await resolvePanamClient(locale, searchParams);
   const isEnglish = locale?.toLowerCase() === "en" || client.slug.endsWith("-en");
   const title = isEnglish
-    ? "PANAM' EN FETE by DJ FLO | Event collective"
-    : "PANAM' EN FETE par DJ FLO | Collectif événementiel";
+    ? "PANAM' EN FETE by FLO | Event collective"
+    : "PANAM' EN FETE par FLO | Collectif événementiel";
   const description = isEnglish
-    ? "Explore PANAM' EN FETE, DJ FLO's Paris event collective: MOB Sessions, flyers, videos and community moments."
-    : "Explorez PANAM' EN FETE, le collectif événementiel parisien de DJ FLO: MOB Sessions, flyers, vidéos et moments de communauté.";
+    ? "Explore PANAM' EN FETE, FLO's Paris event collective: MOB Sessions, flyers, videos and community moments."
+    : "Explorez PANAM' EN FETE, le collectif événementiel parisien de FLO: MOB Sessions, flyers, vidéos et moments de communauté.";
 
   return buildClientMetadata(client, isEnglish ? "/en/panam-en-fete" : "/panam-en-fete", {
     title,
     description,
     image: "/dj-flo/optimized/panam/flyer-hh-afro.jpg",
-    imageAlt: "PANAM' EN FETE by DJ FLO",
+    imageAlt: "PANAM' EN FETE by FLO",
     keywords: [
       "PANAM EN FETE",
-      "DJ FLO",
+      "FLO",
       "MOB Sessions",
       "events Paris",
       "collectif événementiel Paris",
@@ -129,7 +129,7 @@ export async function PanamPage({ locale, searchParams }: PanamPageProps) {
 
   const copy = isEnglish
     ? {
-        eyebrow: "DJ FLO project",
+        eyebrow: "FLO project",
         title: "PANAM' EN FETE",
         intro:
           "A Paris event collective built to bring people together around strong musical concepts and accessible, carefully curated nights.",
@@ -147,7 +147,7 @@ export async function PanamPage({ locale, searchParams }: PanamPageProps) {
         photos: "MOB Sessions photos",
       }
     : {
-        eyebrow: "Projet DJ FLO",
+        eyebrow: "Projet FLO",
         title: "PANAM' EN FETE",
         intro:
           "Un collectif événementiel parisien pensé pour rassembler autour de concepts musicaux forts, accessibles et soignés.",
