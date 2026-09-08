@@ -946,6 +946,7 @@ export const djFloEnClient: ClientConfig = {
     ],
     canonical: "https://djfloparis.com/",
     ogImage: heroImage,
+    favicon: "/dj-flo/optimized/favicon/favicon.ico",
   },
   defaultTheme: "dj-flo",
   defaultVariant: "impact",
