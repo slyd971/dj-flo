@@ -1,7 +1,6 @@
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { getClientBySlug as getLocalClientBySlug } from "@/data/clients";
-import { getAirtableClientByHost, getAirtableClientBySlug } from "@/lib/airtable";
 import {
   getDefaultClient,
   getClientByHost as getLocalClientByHost,
@@ -51,12 +50,10 @@ export async function resolveRequestClient(slug?: string | null) {
   const client =
     (isLocal ? requestedLocalClient : null) ??
     requestedClientForHost ??
-    (await getAirtableClientByHost(hostname)) ??
-    (isLocal ? await getAirtableClientBySlug(normalizedSlug) : null) ??
     localHostClient ??
     (isLocal ? requestedLocalClient : null) ??
     (!isLocal && deploymentSlug
-      ? (await getAirtableClientBySlug(deploymentSlug)) ?? getDeploymentClient()
+      ? getDeploymentClient()
       : null) ??
     (isLocal ? getDefaultClient() : null);
 
